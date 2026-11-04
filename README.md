@@ -83,3 +83,23 @@ Rencana CNN memakai train 2022–2023, validation 2024, dan test 2025, tanpa fit
 Karena EDA sudah mencakup 2025, dokumentasi menjelaskan batas holdout yang sudah dilihat serta
 perlunya membekukan protokol sebelum modeling. Scaler, imputasi, atau threshold model berikutnya
 harus dipelajari dari train; seluruh hasil EDA bukan parameter preprocessing CNN.
+
+## Tahap 6–9: CNN 1D, evaluasi, insight, dan paper
+
+CNN pipeline:
+
+```bash
+python src/stage6_9_cnn_pipeline.py
+```
+
+Pipeline membandingkan lookback `[24, 48, 72]` jam dengan horizon `[1, 6, 24]` jam,
+fit StandardScaler pada train (2022–2023) saja, memakai validation 2024 untuk pemilihan,
+dan test 2025 untuk evaluasi. Model memakai PyTorch CPU, seed 42, training window stride 3
+untuk efisiensi dan evaluasi stride 1. Hasil disimpan pada `output/cnn/`.
+
+Paper penelitian: `paper/Paper_CNN_TimeSeries_Bandung.docx`.
+Laporan insight/QA: `reports/07_cnn_experiments_insight.md`.
+
+**Catatan interpretasi:** 2025 sudah ikut EDA tahap sebelumnya, sehingga test kronologis ini
+bukan holdout yang sepenuhnya blind. Baseline persistence disertakan. CNN mengungguli baseline
+pada horizon 6 jam tetapi belum pada horizon 1 atau 24 jam; jangan klaim keunggulan universal.

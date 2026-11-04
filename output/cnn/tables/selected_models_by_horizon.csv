@@ -1,0 +1,4 @@
+lookback_hours,horizon_hours,epochs_run,validation_MAE_C,test_MAE_C,test_RMSE_C,persistence_MAE_C,persistence_RMSE_C,training_seconds,parameters,n_train_windows,n_validation_windows,n_test_windows
+24,1,10,0.889,0.869,1.087,0.7452495076694139,1.0009284920741004,2.8,3969,17496,8760,8736
+24,6,10,1.119,1.085,1.36,3.3039857684114073,4.048971691094676,2.4,3969,17491,8755,8731
+24,24,10,1.115,1.088,1.37,0.9602662945024675,1.309842338421318,2.4,3969,17473,8737,8713

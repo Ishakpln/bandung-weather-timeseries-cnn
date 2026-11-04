@@ -1,0 +1,48 @@
+{
+  "seed": 42,
+  "framework": "PyTorch 2.10.0+cpu",
+  "device": "CPU",
+  "architecture": "Conv1D(16,kernel=5)-ReLU-Conv1D(32,kernel=3)-ReLU-GlobalAveragePooling1D-Dense16-ReLU-Dropout0.15-Dense1",
+  "trainable_parameters": 3969,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "loss": "MSE on standardized target",
+  "batch_size": 256,
+  "max_epochs": 10,
+  "early_stopping_patience": 3,
+  "lookbacks_hours": [
+    24,
+    48,
+    72
+  ],
+  "horizons_hours": [
+    1,
+    6,
+    24
+  ],
+  "training_window_stride": 3,
+  "validation_test_stride": 1,
+  "split": "train 2022-2023; validation 2024; test 2025; windows stay within segment",
+  "continuous_features": [
+    "temperature_2m",
+    "relative_humidity_2m",
+    "dew_point_2m",
+    "precipitation",
+    "pressure_msl",
+    "cloud_cover",
+    "wind_speed_10m"
+  ],
+  "cyclical_features": [
+    "hour_sin",
+    "hour_cos",
+    "month_sin",
+    "month_cos",
+    "day_of_year_sin",
+    "day_of_year_cos"
+  ],
+  "weather_code_encoding": "one-hot; 10 categories observed in train; no ordinal treatment",
+  "scaling": "StandardScaler fitted only on train; target inverse transformed to Celsius",
+  "model_selection": "minimum validation MAE per horizon",
+  "baseline": "Persistence: target temperature at t+h predicted by temperature at t",
+  "important_limitation": "2025 was included in prior EDA; not a completely unseen holdout across the full research workflow."
+}
