@@ -1,0 +1,8 @@
+variable,basis,basis_n,q1,q3,lower_fence,upper_fence,flagged_count,flagged_pct_of_basis
+temperature_2m,all_hours,35064,20.8,25.2,14.2,31.8,109,0.3108601415
+relative_humidity_2m,all_hours,35064,72,91,43.5,119.5,838,2.389915583
+dew_point_2m,all_hours,35064,18.1,20.2,14.95,23.35,1373,3.915697011
+precipitation,positive_hours_only,9378,0.1,0.7,-0.8,1.6,1284,13.69161868
+pressure_msl,all_hours,35064,1010.3,1013.1,1006.1,1017.3,70,0.1996349532
+cloud_cover,all_hours,35064,69,100,22.5,146.5,3665,10.45231577
+wind_speed_10m,all_hours,35064,3.6,7.9,-2.85,14.35,852,2.429842574

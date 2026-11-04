@@ -1,0 +1,18 @@
+{
+  "temperature_mean_C": 23.02529660050194,
+  "humidity_mean_pct": 79.46497832534793,
+  "rain_total_timestamp_grouped_mm": 8115.699999999999,
+  "wet_hours_gt0": 9378,
+  "wet_pct": 26.745379876796715,
+  "daily_temperature_linear_slope_C_per_year_descriptive": 0.24391315567388155,
+  "month_hour_residual_daily_slope_C_per_year_descriptive": 0.20254303489188075,
+  "temp_humidity_pearson": -0.8577647699907208,
+  "temp_humidity_residual_pearson": -0.6717113458124362,
+  "hottest_month": 10,
+  "coolest_month": 7,
+  "warmest_hour_WIB": 12,
+  "coolest_hour_WIB": 6,
+  "anomaly_candidates": 129,
+  "zero_MAD_hours": 0,
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469"
+}

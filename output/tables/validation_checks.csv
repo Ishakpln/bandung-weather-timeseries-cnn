@@ -1,0 +1,29 @@
+check,passed,observed
+schema_exact,True,"['time', 'temperature_2m', 'relative_humidity_2m', 'dew_point_2m', 'precipitation', 'pressure_msl', 'cloud_cover', 'wind_speed_10m', 'weather_code']"
+unit_temperature_2m,True,temperature_2m (°C)
+unit_relative_humidity_2m,True,relative_humidity_2m (%)
+unit_dew_point_2m,True,dew_point_2m (°C)
+unit_precipitation,True,precipitation (mm)
+unit_pressure_msl,True,pressure_msl (hPa)
+unit_cloud_cover,True,cloud_cover (%)
+unit_wind_speed_10m,True,wind_speed_10m (km/h)
+unit_weather_code,True,weather_code (wmo code)
+rows,True,35064 / 35064
+columns,True,9
+parseable_timestamp,True,0
+period_start,True,2022-01-01 00:00:00+07:00
+period_end,True,2025-12-31 23:00:00+07:00
+missing_hour,True,0
+extra_timestamp,True,0
+unique_timestamp,True,0
+timezone,True,Asia/Jakarta
+utc_offset_seconds,True,25200.0
+location_sanity_check,True,1.698189 km <= 10.0 km
+numeric_temperature_2m,True,float64
+numeric_relative_humidity_2m,True,int64
+numeric_dew_point_2m,True,float64
+numeric_precipitation,True,float64
+numeric_pressure_msl,True,float64
+numeric_cloud_cover,True,int64
+numeric_wind_speed_10m,True,float64
+numeric_weather_code,True,int64

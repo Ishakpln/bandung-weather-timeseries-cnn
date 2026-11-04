@@ -1,0 +1,4 @@
+pair,Pearson,Spearman,Pearson_month_hour_residual,n
+temperature_2m / relative_humidity_2m,-0.85776477,-0.8368162314,-0.6717113458,35064
+cloud_cover / precipitation,0.1200959699,0.2538162376,0.09292333331,35064
+relative_humidity_2m / precipitation,0.03389490829,-0.0401843809,0.2813885634,35064

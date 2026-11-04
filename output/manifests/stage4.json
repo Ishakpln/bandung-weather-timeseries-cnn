@@ -1,0 +1,124 @@
+{
+  "stage": 4,
+  "status": "passed",
+  "completed_at_jakarta": "2026-11-04T20:32:17.612475+07:00",
+  "raw_file": "data\\raw\\BandungRawWeather.csv",
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
+  "code_sha256": {
+    "src\\common.py": "e20f329cd22dd072e46cba64b28ab726b136fc46a0e24d6722a7092eee6a56e7",
+    "src\\stage4_visualization.py": "28d0bc3b75f30e732252fd135b14c99a944992e8765722c947917ab514b96ef2"
+  },
+  "artifacts": [
+    {
+      "path": "output\\tables\\daily_summary.csv",
+      "sha256": "40006027b48119966e5a575cd84dcc37357dcf6c7fa9c99dd33fee804ff46897"
+    },
+    {
+      "path": "output\\tables\\monthly_summary.csv",
+      "sha256": "91d4f471207be4d269545727b991663906ad7cb054009401b916a728886f57fe"
+    },
+    {
+      "path": "output\\tables\\annual_summary.csv",
+      "sha256": "ef58d3b4b9852b9ceda5a4a0ca50df331aebb27e94bcccdf356bc57fbd5fc6e5"
+    },
+    {
+      "path": "output\\tables\\monthly_pattern.csv",
+      "sha256": "15dc276178f9e13fd0a79a636ed7103bc9b5530cc7f7cc25c65e3163c9156f5c"
+    },
+    {
+      "path": "output\\tables\\hourly_pattern.csv",
+      "sha256": "556fe0fada79fb98e41f2c6c977d5d22883ba981d7e41425956e0555075b576d"
+    },
+    {
+      "path": "output\\tables\\temperature_anomaly_scores.csv",
+      "sha256": "fce9fe35717a0d61a42ae61d592b05e3273c28fce5a42bfb769af6e78899188e"
+    },
+    {
+      "path": "output\\tables\\temperature_anomaly_candidates.csv",
+      "sha256": "6f342efbd77faa04e3966d4f0e40f1e68c66c739cd92ec45a60d828c9156ae7e"
+    },
+    {
+      "path": "output\\tables\\autocorrelation.csv",
+      "sha256": "edc30952d6f1971ae3b03548bcfcd3ab9f39c0242ecb28e829f5f63a21b1ce04"
+    },
+    {
+      "path": "output\\figures\\01_temperature_timeseries.png",
+      "sha256": "638524be43150a099ee1d21e1776cceb5330731272c9762f4bb4d21676b8b51c"
+    },
+    {
+      "path": "output\\figures\\02_humidity_timeseries.png",
+      "sha256": "8c2db7d2ab3610c604e670c78cac011337c029f4252f188c065896186c27a7ef"
+    },
+    {
+      "path": "output\\figures\\03_precipitation_analysis.png",
+      "sha256": "aac718e3ec31f8b3d647a7d072325dd5745940a53c04b5b932eabf842fc31db9"
+    },
+    {
+      "path": "output\\figures\\04_precipitation_distribution.png",
+      "sha256": "8d395630e6b2e374f6f4cb9f913cd800db9abaa64df475f8196dfcdbb73a8c19"
+    },
+    {
+      "path": "output\\figures\\05_monthly_temperature_pattern.png",
+      "sha256": "4821b8ed30a6626ac6126d335ae697098bc09d306e9455634674bd3c810ce424"
+    },
+    {
+      "path": "output\\figures\\06_hourly_temperature_humidity.png",
+      "sha256": "7b1a830bb741ef0c5e606316c7f4f7126a62e616f2b27ba38ba875c37c64e637"
+    },
+    {
+      "path": "output\\figures\\07_temperature_vs_humidity.png",
+      "sha256": "b22dabeb140636fc5820a303f398242ddb8a6ed42fd2c01a6573c38b843da013"
+    },
+    {
+      "path": "output\\figures\\08_cloud_cover_vs_precipitation.png",
+      "sha256": "df8fc84c2879f76909ae882f7f5f789875a527af1035183c44c39e7e32d83d30"
+    },
+    {
+      "path": "output\\figures\\09_humidity_vs_precipitation.png",
+      "sha256": "7b70cb6bfd71bf1de9f5fd3f685db51cb01e9348cf14a7fef827aee85dc81875"
+    },
+    {
+      "path": "output\\figures\\10_correlation_heatmaps.png",
+      "sha256": "f00561acfa7b58ff4e5373be94a4fa69d4ffb574393de64e8299470d72d5a2c6"
+    },
+    {
+      "path": "output\\figures\\11_variable_distributions.png",
+      "sha256": "9b91754d366b8fb6d25dd41e71d01d34f6c1d6f3f3cee8d5a1bc7f63dfcb1074"
+    },
+    {
+      "path": "output\\tables\\month_hour_temperature.csv",
+      "sha256": "4ac889eb6a8020e08ba56721f0f01be9d55638657193753da9f2f6db5b52237d"
+    },
+    {
+      "path": "output\\tables\\month_hour_wet_pct.csv",
+      "sha256": "e75b2a52d78e6ae910a749b994d3b38889e87a0a22b7d079a78078c85ea990cd"
+    },
+    {
+      "path": "output\\figures\\12_month_hour_patterns.png",
+      "sha256": "e4e3360141fd2fab4327e4dd45a1b8107baf1c72a48fd21d20da668e1e9e3298"
+    },
+    {
+      "path": "output\\figures\\13_monthly_hourly_rain_patterns.png",
+      "sha256": "4ff0d895ebe920a7d910bc6d49d2cbfed3a26865314db1d5c7e537286c1da51a"
+    },
+    {
+      "path": "output\\figures\\14_autocorrelation.png",
+      "sha256": "b9b1a0253f7267c2b67cb3e06ed03e478b43eb7ccfa2794d35916075875cc3de"
+    },
+    {
+      "path": "output\\figures\\15_temperature_anomaly_candidates.png",
+      "sha256": "e556017a00a46de6b6e764250fa2e1a26031383c0f800a3d17fd6dece867ca8f"
+    },
+    {
+      "path": "output\\figures\\figure_manifest.json",
+      "sha256": "b82c8f5f4ef285c47efc9b353401ee81c338a2f7b6733a6c81ab99d8843bae52"
+    },
+    {
+      "path": "reports\\04_visualization_guide.md",
+      "sha256": "38be7b10e6876c1e980120ca0fb129889873b11c28561c6c5c2c9283a7a8a9e0"
+    }
+  ],
+  "figures": 15,
+  "dpi": 300,
+  "temperature_anomaly_candidates": 129
+}

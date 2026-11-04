@@ -1,0 +1,3 @@
+state,n_hours,temperature_mean,humidity_mean,cloud_mean,precipitation_mean
+dry_eq0,25686,22.63438838,79.56236861,75.80102001,0
+wet_gt0,9378,24.09597995,79.1982299,91.99285562,0.8653977394

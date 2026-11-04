@@ -1,0 +1,164 @@
+[
+  {
+    "filename": "01_temperature_timeseries.png",
+    "caption": "Time-series suhu; data hourly dan rata-rata per tanggal lokal.",
+    "source_tables": [
+      "daily_summary.csv"
+    ],
+    "width_px": 3260,
+    "height_px": 1411,
+    "dpi": 300
+  },
+  {
+    "filename": "02_humidity_timeseries.png",
+    "caption": "Time-series kelembapan; data hourly dan rata-rata per tanggal lokal.",
+    "source_tables": [
+      "daily_summary.csv"
+    ],
+    "width_px": 3261,
+    "height_px": 1411,
+    "dpi": 300
+  },
+  {
+    "filename": "03_precipitation_analysis.png",
+    "caption": "Agregasi presipitasi: tanggal, bulan, tahun. Pengelompokan mengikuti timestamp yang tersedia.",
+    "source_tables": [
+      "daily_summary.csv",
+      "monthly_summary.csv",
+      "annual_summary.csv"
+    ],
+    "width_px": 3262,
+    "height_px": 2750,
+    "dpi": 300
+  },
+  {
+    "filename": "04_precipitation_distribution.png",
+    "caption": "Nol ditampilkan terpisah; histogram positif memakai sumbu jumlah logaritmik.",
+    "source_tables": [
+      "eda_summary.json"
+    ],
+    "width_px": 2962,
+    "height_px": 1411,
+    "dpi": 300
+  },
+  {
+    "filename": "05_monthly_temperature_pattern.png",
+    "caption": "Boxplot rata-rata harian: kotak Q1–Q3, garis median, whisker 1,5 IQR; panel bawah empat tahun terpisah.",
+    "source_tables": [
+      "daily_summary.csv",
+      "monthly_summary.csv",
+      "monthly_pattern.csv"
+    ],
+    "width_px": 2961,
+    "height_px": 2446,
+    "dpi": 300
+  },
+  {
+    "filename": "06_hourly_temperature_humidity.png",
+    "caption": "Suhu dan kelembapan per jam; pita adalah rentang kuartil observasi, bukan confidence interval.",
+    "source_tables": [
+      "hourly_pattern.csv"
+    ],
+    "width_px": 2960,
+    "height_px": 2294,
+    "dpi": 300
+  },
+  {
+    "filename": "07_temperature_vs_humidity.png",
+    "caption": "Suhu vs kelembapan; hexbin seluruh data, termasuk nol hujan; korelasi simultan bersifat deskriptif.",
+    "source_tables": [
+      "correlation_pearson.csv",
+      "correlation_spearman.csv"
+    ],
+    "width_px": 2145,
+    "height_px": 1685,
+    "dpi": 300
+  },
+  {
+    "filename": "08_cloud_cover_vs_precipitation.png",
+    "caption": "Tutupan awan vs presipitasi; hexbin seluruh data, termasuk nol hujan; korelasi simultan bersifat deskriptif.",
+    "source_tables": [
+      "correlation_pearson.csv",
+      "correlation_spearman.csv"
+    ],
+    "width_px": 2140,
+    "height_px": 1685,
+    "dpi": 300
+  },
+  {
+    "filename": "09_humidity_vs_precipitation.png",
+    "caption": "Kelembapan vs presipitasi; hexbin seluruh data, termasuk nol hujan; korelasi simultan bersifat deskriptif.",
+    "source_tables": [
+      "correlation_pearson.csv",
+      "correlation_spearman.csv"
+    ],
+    "width_px": 2140,
+    "height_px": 1685,
+    "dpi": 300
+  },
+  {
+    "filename": "10_correlation_heatmaps.png",
+    "caption": "Korelasi tujuh variabel kontinu; kode WMO dan fitur kalender dikecualikan.",
+    "source_tables": [
+      "correlation_pearson.csv",
+      "correlation_spearman.csv"
+    ],
+    "width_px": 3833,
+    "height_px": 1788,
+    "dpi": 300
+  },
+  {
+    "filename": "11_variable_distributions.png",
+    "caption": "Histogram seluruh variabel kontinu dan frekuensi kategori cuaca; hujan memakai sumbu jumlah log.",
+    "source_tables": [
+      "descriptive_statistics.csv",
+      "weather_code_frequency.csv"
+    ],
+    "width_px": 4162,
+    "height_px": 2141,
+    "dpi": 300
+  },
+  {
+    "filename": "12_month_hour_patterns.png",
+    "caption": "Heatmap bulan–jam dari seluruh observasi; persentase menggunakan jumlah jam pada sel masing-masing.",
+    "source_tables": [
+      "month_hour_temperature.csv",
+      "month_hour_wet_pct.csv"
+    ],
+    "width_px": 2742,
+    "height_px": 2294,
+    "dpi": 300
+  },
+  {
+    "filename": "13_monthly_hourly_rain_patterns.png",
+    "caption": "Presipitasi bulanan dirata-ratakan atas empat total tahunan; jam basah memakai ambang >0 mm.",
+    "source_tables": [
+      "monthly_pattern.csv",
+      "hourly_pattern.csv"
+    ],
+    "width_px": 3261,
+    "height_px": 1411,
+    "dpi": 300
+  },
+  {
+    "filename": "14_autocorrelation.png",
+    "caption": "Autokorelasi lag 1–168 jam; residual bulan–jam dihitung retrospektif hanya untuk EDA.",
+    "source_tables": [
+      "autocorrelation.csv"
+    ],
+    "width_px": 2961,
+    "height_px": 1411,
+    "dpi": 300
+  },
+  {
+    "filename": "15_temperature_anomaly_candidates.png",
+    "caption": "Median/MAD per bulan–jam; kandidat bukan bukti kesalahan data atau kejadian ekstrem terverifikasi.",
+    "source_tables": [
+      "temperature_anomaly_scores.csv",
+      "temperature_anomaly_candidates.csv"
+    ],
+    "width_px": 3260,
+    "height_px": 1471,
+    "dpi": 300
+  }
+]

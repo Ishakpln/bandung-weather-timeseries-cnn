@@ -1,0 +1,74 @@
+{
+  "stage": 2,
+  "status": "passed",
+  "completed_at_jakarta": "2026-11-04T20:31:58.153219+07:00",
+  "raw_file": "data\\raw\\BandungRawWeather.csv",
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
+  "code_sha256": {
+    "src\\common.py": "e20f329cd22dd072e46cba64b28ab726b136fc46a0e24d6722a7092eee6a56e7",
+    "src\\stage2_eda.py": "eb3e7738b9782d658e03f8ebd2039ddd5ef169102e06c3a8e57c90175104fe9e"
+  },
+  "artifacts": [
+    {
+      "path": "output\\tables\\descriptive_statistics.csv",
+      "sha256": "12d655c23109d27e14830d4cc61eaf6a1790623a5247215cf33de5d3a3c7bd76"
+    },
+    {
+      "path": "output\\tables\\missing_values.csv",
+      "sha256": "d4a111cf7a2f3948caf78a71b553c1eb3992a143a718b72ad773935a12537a9a"
+    },
+    {
+      "path": "output\\tables\\quality_checks.csv",
+      "sha256": "7e0801549d9640c3f5ce026b1f143ac5b661df6e9fa1206531063b3a6be3944b"
+    },
+    {
+      "path": "output\\tables\\quality_flagged_rows.csv",
+      "sha256": "e2ededc1e5c8df1a1e725afae4ce49e4fb2073e74b1fcff90b2165e968b4caf9"
+    },
+    {
+      "path": "output\\tables\\weather_code_frequency.csv",
+      "sha256": "44c538f4d52d42686c131e8ff9b6e5e0e1db2bc69a99ef0a8c9b831f2ece2169"
+    },
+    {
+      "path": "output\\tables\\monthly_coverage.csv",
+      "sha256": "367f4171ce70202b80e0eb99adc74d4464a7949d80f878c8119c8823c149731c"
+    },
+    {
+      "path": "output\\tables\\constant_runs.csv",
+      "sha256": "b23097afb9c1d9f6dd3c1eb3984f34833183d9a6daa784bb7b939f9eaad95852"
+    },
+    {
+      "path": "output\\tables\\iqr_diagnostics.csv",
+      "sha256": "ee6f631fb2528196687661941fc5cd6aa894a4af4eb81617cedc1d2252b16c37"
+    },
+    {
+      "path": "output\\tables\\correlation_pearson.csv",
+      "sha256": "f10cfcaadd922f348254377a0d24fa746a68b38a3138ec6b4b214e0dd6b843bc"
+    },
+    {
+      "path": "output\\tables\\correlation_spearman.csv",
+      "sha256": "ead8dd81f143716f13e6cab8de6cf8f1de62103a4fe3b6b99b941197a7a29026"
+    },
+    {
+      "path": "output\\tables\\eda_summary.json",
+      "sha256": "97c9fbc24b0228a713a21e872a101abb673f124e92abe984e6e51b100936d266"
+    },
+    {
+      "path": "reports\\02_eda.md",
+      "sha256": "87d19bf78bf1a5f8bd964257bd8430f001186cfc3645e8db0090e87cc4a1a92e"
+    }
+  ],
+  "rows": 35064,
+  "columns": 9,
+  "missing_cells": 0,
+  "exact_duplicate_rows": 0,
+  "duplicate_timestamps": 0,
+  "all_months_complete": true,
+  "physical_quality_violations": 0,
+  "zero_rain_hours": 25686,
+  "wet_hours_gt0": 9378,
+  "wet_hours_ge0_1": 9378,
+  "wet_hours_ge1": 1901,
+  "zero_rain_pct": 73.25462012320328,
+  "wet_hour_median_mm": 0.2
+}

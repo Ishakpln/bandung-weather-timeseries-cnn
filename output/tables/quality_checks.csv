@@ -1,0 +1,11 @@
+check,violations
+humidity_outside_0_100,0
+cloud_outside_0_100,0
+negative_precipitation,0
+negative_wind,0
+nonpositive_pressure,0
+temperature_below_absolute_zero,0
+dewpoint_below_absolute_zero,0
+dewpoint_above_temperature_tolerance_0_3C,0
+unknown_or_fractional_weather_code,0
+infinite_numeric_value,0

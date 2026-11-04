@@ -1,0 +1,10 @@
+variable,missing_count,missing_pct
+time,0,0
+temperature_2m,0,0
+relative_humidity_2m,0,0
+dew_point_2m,0,0
+precipitation,0,0
+pressure_msl,0,0
+cloud_cover,0,0
+wind_speed_10m,0,0
+weather_code,0,0

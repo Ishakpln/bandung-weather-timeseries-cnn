@@ -1,0 +1,43 @@
+{
+  "stage": 1,
+  "status": "passed",
+  "completed_at_jakarta": "2026-11-04T20:31:57.695320+07:00",
+  "raw_file": "data\\raw\\BandungRawWeather.csv",
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
+  "code_sha256": {
+    "src\\common.py": "e20f329cd22dd072e46cba64b28ab726b136fc46a0e24d6722a7092eee6a56e7",
+    "src\\stage1_validation.py": "d523e37aba53d398afe1537a2afbe26d865828f11f6e0e11f3ca6b262504a98d"
+  },
+  "artifacts": [
+    {
+      "path": "output\\tables\\validation_checks.csv",
+      "sha256": "a2c1a1e250ed0c87ca5d4c0216778f286b1d757c6542d42f5c60c058965cfef8"
+    },
+    {
+      "path": "output\\tables\\data_dictionary_raw.csv",
+      "sha256": "7c17c0da57f7de5c0307478d041c6291648353bae9c5a6e4574d5f6509063b38"
+    },
+    {
+      "path": "output\\tables\\source_metadata.json",
+      "sha256": "909618ea5b4ce50f8e70aaf7f913a637b2585ac7c8320edc0bd31449a5c80cbd"
+    },
+    {
+      "path": "output\\tables\\environment.json",
+      "sha256": "4723ff41b8442ef3d831f1ec1fc51298675ec3a51d5024152790bc360f4214f2"
+    },
+    {
+      "path": "reports\\01_data_validation.md",
+      "sha256": "88b89696378e568ea1c06ed6cf6ae6bb9eea7e862926225aaa5b1be314469b8d"
+    },
+    {
+      "path": "output\\tables\\missing_timestamps.csv",
+      "sha256": "a65aae4d4a7708875642efab2fa56afef0177bb38768967787a5488f7a4868e4"
+    },
+    {
+      "path": "output\\tables\\extra_timestamps.csv",
+      "sha256": "a65aae4d4a7708875642efab2fa56afef0177bb38768967787a5488f7a4868e4"
+    }
+  ],
+  "rows": 35064,
+  "columns": 9
+}

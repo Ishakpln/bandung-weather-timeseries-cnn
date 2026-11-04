@@ -1,0 +1,36 @@
+{
+  "stage": 3,
+  "status": "passed",
+  "completed_at_jakarta": "2026-11-04T20:32:00.106491+07:00",
+  "raw_file": "data\\raw\\BandungRawWeather.csv",
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
+  "code_sha256": {
+    "src\\common.py": "e20f329cd22dd072e46cba64b28ab726b136fc46a0e24d6722a7092eee6a56e7",
+    "src\\stage3_preprocessing.py": "ea8176a143edfed443c70e875dfac17f64b9b08680ce9dac54f8342c5fe31c73"
+  },
+  "artifacts": [
+    {
+      "path": "data\\processed\\bandung_weather_hourly_clean.csv",
+      "sha256": "1648f76b5742419b3d32b7f96c820fdcf3c9c903a3114b96f3796a370cace13a"
+    },
+    {
+      "path": "data\\processed\\dataset_metadata.json",
+      "sha256": "eb844fed80bdaacde94e7c779061b1dd9b703bf51362f8e4f01e29988968a4a1"
+    },
+    {
+      "path": "output\\tables\\data_dictionary_processed.csv",
+      "sha256": "d6bfbde3b197f4419e287ab0588fdff8082192063a827344e55eeea689e90341"
+    },
+    {
+      "path": "output\\tables\\preprocessing_audit.csv",
+      "sha256": "79e439e4b0cfecd29a491072ca82dfb2b589121d3e574199755fcfd3d761455c"
+    },
+    {
+      "path": "reports\\03_preprocessing.md",
+      "sha256": "b2ade402240365afba4e45eaf5f87fe0a1cc97da25a4ee063ec605d864299c80"
+    }
+  ],
+  "rows": 35064,
+  "columns": 23,
+  "weather_values_preserved": true
+}

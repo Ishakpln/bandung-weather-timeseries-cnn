@@ -1,0 +1,9 @@
+variable,longest_unchanged_run_hours,mode,mode_pct
+temperature_2m,5,21.5,1.65982204
+relative_humidity_2m,7,93,4.831165868
+dew_point_2m,6,19.9,3.008783938
+precipitation,265,0,73.25462012
+pressure_msl,4,1012.2,2.047684235
+cloud_cover,136,100,48.70807666
+wind_speed_10m,5,5.4,2.076203514
+weather_code,69,3,48.38866073

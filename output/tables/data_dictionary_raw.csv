@@ -1,0 +1,10 @@
+original_name,canonical_name,raw_dtype,unit
+time,time,object,local ISO8601
+temperature_2m (°C),temperature_2m,float64,°C
+relative_humidity_2m (%),relative_humidity_2m,int64,%
+dew_point_2m (°C),dew_point_2m,float64,°C
+precipitation (mm),precipitation,float64,mm
+pressure_msl (hPa),pressure_msl,float64,hPa
+cloud_cover (%),cloud_cover,int64,%
+wind_speed_10m (km/h),wind_speed_10m,float64,km/h
+weather_code (wmo code),weather_code,int64,wmo code

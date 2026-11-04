@@ -1,0 +1,76 @@
+{
+  "stage": 5,
+  "status": "passed",
+  "completed_at_jakarta": "2026-11-04T20:32:19.188275+07:00",
+  "raw_file": "data\\raw\\BandungRawWeather.csv",
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
+  "code_sha256": {
+    "src\\common.py": "e20f329cd22dd072e46cba64b28ab726b136fc46a0e24d6722a7092eee6a56e7",
+    "src\\stage5_patterns.py": "01ac94bf9171df16bd28228ded7425ebc6171971ead1349fbfabf610eb4306be"
+  },
+  "artifacts": [
+    {
+      "path": "output\\tables\\conditional_rain_cloud.csv",
+      "sha256": "0164d64efc188a58a6339e07036b30cb5ac6512e629557c9af46e174a644f5dc"
+    },
+    {
+      "path": "output\\tables\\conditional_rain_humidity.csv",
+      "sha256": "36ee15eb954eb9ecb6f068c31da31ec70b63d61944e01b0457d432415a129bc5"
+    },
+    {
+      "path": "output\\tables\\dry_wet_comparison.csv",
+      "sha256": "b1058f3bf03739c0f9ad6be9883c27b8b3b999b7f54e9bae379e968ba6d2d221"
+    },
+    {
+      "path": "output\\tables\\annual_changes.csv",
+      "sha256": "668752b88c39b9a8e9314eda5455ec854e20a2dfa6f5a72dd94380ee1a1b7546"
+    },
+    {
+      "path": "output\\tables\\anomaly_candidates_by_year.csv",
+      "sha256": "4785cadab67cae4001f5d60e2db7acafb9c9816854995ec084aa0df22cc52c5d"
+    },
+    {
+      "path": "output\\tables\\top_temperature_anomalies.csv",
+      "sha256": "fe65c614fcfb159fac7c1cfa9ff5b8c31d5341a6bdd6b14481c1b04412967705"
+    },
+    {
+      "path": "output\\tables\\top_rain_hours.csv",
+      "sha256": "37940e8361b1e78e122172637c8973651801a7df033545cdc8c635c97d309e9d"
+    },
+    {
+      "path": "output\\tables\\top_rain_days.csv",
+      "sha256": "627cbcef898dccb3b2752f43f84494127cac8489bb9b10e2d7d8ad18a141d554"
+    },
+    {
+      "path": "output\\tables\\rain_threshold_sensitivity.csv",
+      "sha256": "ac0cdc8f26d1cb06fb864e1432a09dd1239b891d5a124c912fc22478e805570a"
+    },
+    {
+      "path": "output\\tables\\correlation_month_hour_residual_pearson.csv",
+      "sha256": "aad8782472cc821ade0ebe931909bc6c5457588be8c986e833bf52fd64929d3c"
+    },
+    {
+      "path": "output\\tables\\pattern_evidence.json",
+      "sha256": "b4e357f2fb1bcd3940bf6f7864b15d176dfda5c8e549a81182a34b0abe8f2bfa"
+    },
+    {
+      "path": "output\\tables\\key_associations.csv",
+      "sha256": "a2ff5eeed1b9ab163fb15032b226e3dfc0e3da9cc2555844cec26dfedb5b6317"
+    },
+    {
+      "path": "reports\\05_pattern_analysis_insight.md",
+      "sha256": "e778ca506800a3e7d2f68b07b0d55c0522071fd7dc6e42245cdab9a23d7267c7"
+    },
+    {
+      "path": "output\\tables\\cnn_recommended_split_plan.csv",
+      "sha256": "a0af385b3484f335d97d9e2010ee4e98d85ce01d3ed15ef7404ac396cfca6eb9"
+    },
+    {
+      "path": "reports\\06_cnn_readiness.md",
+      "sha256": "a131322a0c2fa47a7374869c08e1e9ebe5f71cac38cdd29883216826e45b3cbd"
+    }
+  ],
+  "analysis_complete": true,
+  "cnn_training_performed": false,
+  "predictions_performed": false
+}

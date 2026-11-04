@@ -1,0 +1,41 @@
+{
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
+  "processed_sha256": "1648f76b5742419b3d32b7f96c820fdcf3c9c903a3114b96f3796a370cace13a",
+  "rows": 35064,
+  "columns": 23,
+  "timezone": "Asia/Jakarta",
+  "start": "2022-01-01 00:00:00+07:00",
+  "end": "2025-12-31 23:00:00+07:00",
+  "frequency": "1h",
+  "weather_values_preserved": true,
+  "imputed_cells": 0,
+  "dropped_rows": 0,
+  "added_observations": 0,
+  "scaling_applied": false,
+  "source_metadata": {
+    "latitude": -6.9244285,
+    "longitude": 107.60539,
+    "elevation": 703.0,
+    "utc_offset_seconds": 25200.0,
+    "timezone": "Asia/Jakarta",
+    "timezone_abbreviation": "GMT+7"
+  },
+  "calendar_features": [
+    "hour",
+    "day",
+    "day_of_week",
+    "day_of_year",
+    "month",
+    "year",
+    "is_weekend",
+    "date"
+  ],
+  "cyclical_features": [
+    "hour_sin",
+    "hour_cos",
+    "month_sin",
+    "month_cos",
+    "day_of_year_sin",
+    "day_of_year_cos"
+  ]
+}

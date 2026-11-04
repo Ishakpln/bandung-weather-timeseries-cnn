@@ -1,0 +1,24 @@
+column,dtype_in_memory,role,unit_or_domain,description
+time,"datetime64[ns, Asia/Jakarta]",timestamp,ISO8601 +07:00,Waktu lokal WIB; hourly unik
+temperature_2m,float64,continuous_weather,°C,Nilai dari CSV mentah; tidak diubah
+relative_humidity_2m,float64,continuous_weather,%,Nilai dari CSV mentah; tidak diubah
+dew_point_2m,float64,continuous_weather,°C,Nilai dari CSV mentah; tidak diubah
+precipitation,float64,continuous_weather,mm,Nilai dari CSV mentah; tidak diubah
+pressure_msl,float64,continuous_weather,hPa,Nilai dari CSV mentah; tidak diubah
+cloud_cover,float64,continuous_weather,%,Nilai dari CSV mentah; tidak diubah
+wind_speed_10m,float64,continuous_weather,km/h,Nilai dari CSV mentah; tidak diubah
+weather_code,int16,categorical_weather,wmo code,Nilai dari CSV mentah; tidak diubah
+hour,int16,derived_calendar,0..23,Jam lokal
+day,int16,derived_calendar,1..31,Tanggal dalam bulan
+day_of_week,int16,derived_calendar,0..6,Senin=0; Minggu=6
+day_of_year,int16,derived_calendar,1..365/366,Urutan hari; tahun kabisat dipertahankan
+month,int16,derived_calendar,1..12,Bulan kalender
+year,int16,derived_calendar,2022..2025,Tahun; bukan fitur wajib CNN
+is_weekend,int16,derived_calendar,0/1,Sabtu/Minggu=1; bukan asumsi pengaruh cuaca
+date,object,derived_calendar,YYYY-MM-DD,Label tanggal lokal untuk agregasi
+hour_sin,float64,derived_cyclical,"[-1,1]",Transformasi sinus/kosinus kalender deterministik
+hour_cos,float64,derived_cyclical,"[-1,1]",Transformasi sinus/kosinus kalender deterministik
+month_sin,float64,derived_cyclical,"[-1,1]",Transformasi sinus/kosinus kalender deterministik
+month_cos,float64,derived_cyclical,"[-1,1]",Transformasi sinus/kosinus kalender deterministik
+day_of_year_sin,float64,derived_cyclical,"[-1,1]",Transformasi sinus/kosinus kalender deterministik
+day_of_year_cos,float64,derived_cyclical,"[-1,1]",Transformasi sinus/kosinus kalender deterministik

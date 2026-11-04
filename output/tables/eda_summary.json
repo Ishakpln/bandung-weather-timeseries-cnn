@@ -1,0 +1,15 @@
+{
+  "rows": 35064,
+  "columns": 9,
+  "missing_cells": 0,
+  "exact_duplicate_rows": 0,
+  "duplicate_timestamps": 0,
+  "all_months_complete": true,
+  "physical_quality_violations": 0,
+  "zero_rain_hours": 25686,
+  "wet_hours_gt0": 9378,
+  "wet_hours_ge0_1": 9378,
+  "wet_hours_ge1": 1901,
+  "zero_rain_pct": 73.25462012320328,
+  "wet_hour_median_mm": 0.2
+}

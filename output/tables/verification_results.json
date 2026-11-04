@@ -1,0 +1,153 @@
+{
+  "status": "passed",
+  "checks_count": 29,
+  "checks": [
+    {
+      "check": "provenance_and_artifact_hashes",
+      "passed": true,
+      "detail": "Semua manifest tahap 1–5, kode, raw, dan artefak cocok"
+    },
+    {
+      "check": "shape_and_raw_values",
+      "passed": true,
+      "detail": "35.064×23; seluruh 280.512 nilai cuaca identik"
+    },
+    {
+      "check": "hourly_period_and_timezone",
+      "passed": true,
+      "detail": "Hourly utuh; offset +07:00"
+    },
+    {
+      "check": "missing_infinite_and_leap_day",
+      "passed": true,
+      "detail": "Tidak ada missing/inf; 29 Februari 2024 mencakup 24 jam"
+    },
+    {
+      "check": "calendar_features",
+      "passed": true,
+      "detail": "Kalender cocok dengan datetime Python"
+    },
+    {
+      "check": "cyclical_features",
+      "passed": true,
+      "detail": "Sin²+cos²=1"
+    },
+    {
+      "check": "aggregation_conservation",
+      "passed": true,
+      "detail": "1.461 hari, 48 bulan, 4 tahun; jam dan hujan konsisten"
+    },
+    {
+      "check": "independent_correlations",
+      "passed": true,
+      "detail": "Pearson NumPy dan Spearman SciPy cocok dengan tabel Pandas"
+    },
+    {
+      "check": "insight_evidence",
+      "passed": true,
+      "detail": "Angka insight dan kandidat konsisten"
+    },
+    {
+      "check": "chronological_split_plan",
+      "passed": true,
+      "detail": "Rencana 2022–2023 / 2024 / 2025 lengkap dan tidak bertumpang tindih"
+    },
+    {
+      "check": "png_01_temperature_timeseries.png",
+      "passed": true,
+      "detail": "3260×1411 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_02_humidity_timeseries.png",
+      "passed": true,
+      "detail": "3261×1411 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_03_precipitation_analysis.png",
+      "passed": true,
+      "detail": "3262×2750 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_04_precipitation_distribution.png",
+      "passed": true,
+      "detail": "2962×1411 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_05_monthly_temperature_pattern.png",
+      "passed": true,
+      "detail": "2961×2446 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_06_hourly_temperature_humidity.png",
+      "passed": true,
+      "detail": "2960×2294 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_07_temperature_vs_humidity.png",
+      "passed": true,
+      "detail": "2145×1685 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_08_cloud_cover_vs_precipitation.png",
+      "passed": true,
+      "detail": "2140×1685 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_09_humidity_vs_precipitation.png",
+      "passed": true,
+      "detail": "2140×1685 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_10_correlation_heatmaps.png",
+      "passed": true,
+      "detail": "3833×1788 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_11_variable_distributions.png",
+      "passed": true,
+      "detail": "4162×2141 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_12_month_hour_patterns.png",
+      "passed": true,
+      "detail": "2742×2294 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_13_monthly_hourly_rain_patterns.png",
+      "passed": true,
+      "detail": "3261×1411 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_14_autocorrelation.png",
+      "passed": true,
+      "detail": "2961×1411 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "png_15_temperature_anomaly_candidates.png",
+      "passed": true,
+      "detail": "3260×1471 px; 300 dpi; tidak kosong"
+    },
+    {
+      "check": "required_deliverables",
+      "passed": true,
+      "detail": "15 PNG dan enam laporan tersedia"
+    },
+    {
+      "check": "gate_missing_prerequisite",
+      "passed": true,
+      "detail": "Tahap 2 ditolak tanpa keberhasilan tahap 1"
+    },
+    {
+      "check": "gate_changed_raw",
+      "passed": true,
+      "detail": "Hash raw berubah ditolak"
+    },
+    {
+      "check": "gate_changed_code",
+      "passed": true,
+      "detail": "Kode prasyarat berubah ditolak"
+    }
+  ],
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
+  "cnn_training_performed": false
+}
