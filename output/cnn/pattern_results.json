@@ -1,0 +1,243 @@
+{
+  "objective": "weather_pattern_exploration_not_forecasting",
+  "selection_split": "validation",
+  "primary": {
+    "representation": "cnn1d",
+    "k": 2,
+    "validation_silhouette": 0.29149219393730164,
+    "test_silhouette": 0.2193952053785324,
+    "test_silhouette_common_input": 0.162632554769516,
+    "test_cluster_counts": [
+      161,
+      21
+    ]
+  },
+  "representations": [
+    {
+      "representation": "cnn1d",
+      "k": 2,
+      "validation_silhouette": 0.29149219393730164,
+      "test_silhouette": 0.2193952053785324,
+      "test_silhouette_common_input": 0.162632554769516,
+      "test_cluster_counts": [
+        161,
+        21
+      ]
+    },
+    {
+      "representation": "cnn2d",
+      "k": 2,
+      "validation_silhouette": 0.19747382402420044,
+      "test_silhouette": 0.15670351684093475,
+      "test_silhouette_common_input": 0.056844018399715424,
+      "test_cluster_counts": [
+        91,
+        91
+      ]
+    },
+    {
+      "representation": "untrained_cnn1d",
+      "k": 2,
+      "validation_silhouette": 0.17925502359867096,
+      "test_silhouette": 0.1159014031291008,
+      "test_silhouette_common_input": 0.11285712569952011,
+      "test_cluster_counts": [
+        158,
+        24
+      ]
+    },
+    {
+      "representation": "pca_input",
+      "k": 2,
+      "validation_silhouette": 0.23123811185359955,
+      "test_silhouette": 0.1724485605955124,
+      "test_silhouette_common_input": 0.1589127480983734,
+      "test_cluster_counts": [
+        146,
+        36
+      ]
+    },
+    {
+      "representation": "summary_statistics",
+      "k": 2,
+      "validation_silhouette": 0.28230541944503784,
+      "test_silhouette": 0.23710736632347107,
+      "test_silhouette_common_input": 0.13278774917125702,
+      "test_cluster_counts": [
+        139,
+        43
+      ]
+    }
+  ],
+  "reconstruction_benchmarks": [
+    {
+      "space": "1D standardized weather",
+      "method": "train_mean",
+      "test_mse": 0.9415030479431152
+    },
+    {
+      "space": "1D standardized weather",
+      "method": "train_hour_profile",
+      "test_mse": 0.6725778929935565
+    },
+    {
+      "space": "1D standardized weather",
+      "method": "cnn1d",
+      "test_mse": 0.05780888348817825
+    },
+    {
+      "space": "2D temperature similarity",
+      "method": "train_mean_image",
+      "test_mse": 0.03042396530508995
+    },
+    {
+      "space": "2D temperature similarity",
+      "method": "cnn2d",
+      "test_mse": 0.010927701368927956
+    }
+  ],
+  "encoder_seed_ARI": {
+    "cnn1d": {
+      "mean": 0.6243596156336145,
+      "min": 0.5140207044093787
+    },
+    "cnn2d": {
+      "mean": 0.7146559559098131,
+      "min": 0.6775263352777345
+    }
+  },
+  "pca": {
+    "cnn1d": {
+      "fit_split": "train",
+      "explained_variance_ratio_train": [
+        0.5085516571998596,
+        0.09069370478391647
+      ],
+      "two_components_variance_pct": 59.924537658691406
+    },
+    "cnn2d": {
+      "fit_split": "train",
+      "explained_variance_ratio_train": [
+        0.34099677205085754,
+        0.1384611278772354
+      ],
+      "two_components_variance_pct": 47.94579315185547
+    }
+  },
+  "representatives": [
+    {
+      "cluster": 1,
+      "test_window_id": 25,
+      "start": "2025-02-20T00:00:00+07:00",
+      "end": "2025-02-21T23:00:00+07:00",
+      "start_row": 27504
+    },
+    {
+      "cluster": 2,
+      "test_window_id": 140,
+      "start": "2025-10-08T00:00:00+07:00",
+      "end": "2025-10-09T23:00:00+07:00",
+      "start_row": 33024
+    }
+  ],
+  "test_cluster_profiles": [
+    {
+      "split": "test",
+      "cluster": 1,
+      "n_windows": 161,
+      "temperature_mean": 23.231159420289856,
+      "temperature_range": 8.945962732919254,
+      "humidity_mean": 79.94707556935818,
+      "rain_sum": 12.650931677018633,
+      "wet_pct": 31.327639751552795,
+      "cloud_mean": 84.40450310559007,
+      "wind_mean": 5.111671842650103
+    },
+    {
+      "split": "test",
+      "cluster": 2,
+      "n_windows": 21,
+      "temperature_mean": 23.37549603174603,
+      "temperature_range": 11.566666666666666,
+      "humidity_mean": 73.69940476190476,
+      "rain_sum": 10.32857142857143,
+      "wet_pct": 16.865079365079367,
+      "cloud_mean": 66.46626984126985,
+      "wind_mean": 5.358730158730158
+    }
+  ],
+  "reconstruction_domain_checks": [
+    {
+      "feature": "relative_humidity_2m",
+      "lower_bound": 0,
+      "upper_bound": 100,
+      "minimum_reconstructed": 33.31659539261867,
+      "maximum_reconstructed": 99.99999945640295,
+      "violations_tolerance_1e_4": 0,
+      "evaluated_cells": 8736
+    },
+    {
+      "feature": "precipitation",
+      "lower_bound": 0,
+      "upper_bound": null,
+      "minimum_reconstructed": 8.30199797796638e-10,
+      "maximum_reconstructed": 18.19803886716961,
+      "violations_tolerance_1e_4": 0,
+      "evaluated_cells": 8736
+    },
+    {
+      "feature": "cloud_cover",
+      "lower_bound": 0,
+      "upper_bound": 100,
+      "minimum_reconstructed": 5.857958456090273e-07,
+      "maximum_reconstructed": 99.9999991819181,
+      "violations_tolerance_1e_4": 0,
+      "evaluated_cells": 8736
+    },
+    {
+      "feature": "wind_speed_10m",
+      "lower_bound": 0,
+      "upper_bound": null,
+      "minimum_reconstructed": 1.8634901000069704e-07,
+      "maximum_reconstructed": 19.1442000124845,
+      "violations_tolerance_1e_4": 0,
+      "evaluated_cells": 8736
+    }
+  ],
+  "three_seed_agreement": {
+    "aligned_on": "train labels using Hungarian matching",
+    "n_windows": 163,
+    "total_test_windows": 182,
+    "percentage": 89.56043956043956,
+    "core_profiles": [
+      {
+        "selected_cluster": 1,
+        "n_windows": 148,
+        "temperature_mean": 23.149000563063066,
+        "temperature_range": 8.74189189189189,
+        "humidity_mean": 80.53082770270271,
+        "rain_sum": 13.310135135135136,
+        "wet_pct": 32.50281531531532,
+        "cloud_mean": 86.34628378378379
+      },
+      {
+        "selected_cluster": 2,
+        "n_windows": 15,
+        "temperature_mean": 23.522499999999997,
+        "temperature_range": 12.313333333333334,
+        "humidity_mean": 71.21111111111112,
+        "rain_sum": 5.079999999999999,
+        "wet_pct": 9.305555555555555,
+        "cloud_mean": 59.09166666666667
+      }
+    ]
+  },
+  "limitations": [
+    "Exploratory results; test year was viewed in EDA",
+    "Clusters are algorithmic partitions, not confirmed weather classes",
+    "Silhouettes in different representation spaces are not directly comparable superiority scores",
+    "Fixed 48h windows, one location and three encoder seeds",
+    "Month labels refer to window start; windows may span months",
+    "No causal attribution, anomaly ground truth, forecast, or long-term climatology"
+  ]
+}

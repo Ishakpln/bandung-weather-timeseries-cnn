@@ -1,0 +1,6 @@
+representation,k,validation_silhouette,test_silhouette,test_silhouette_common_input,test_cluster_counts
+cnn1d,2,0.2914921939,0.2193952054,0.1626325548,"[161, 21]"
+cnn2d,2,0.197473824,0.1567035168,0.0568440184,"[91, 91]"
+untrained_cnn1d,2,0.1792550236,0.1159014031,0.1128571257,"[158, 24]"
+pca_input,2,0.2312381119,0.1724485606,0.1589127481,"[146, 36]"
+summary_statistics,2,0.2823054194,0.2371073663,0.1327877492,"[139, 43]"

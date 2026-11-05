@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "canonical_pdf": "13524022_13524063_Visualisasi_CNN_IEEE_Format.pdf",
+  "pattern_manifest_sha256": "1cc0416b4ed49ccb5871a253c24b1b981279f3bbd573b788b39f36ecea097479",
+  "builder_sha256": "01bf8592c98879ca75f38f1bb29c3eae693b521c35d09ee78a719016bb6d0784",
+  "artifacts": {
+    "reports\\13524022_13524063_Visualisasi_CNN_IEEE_Format.pdf": "9a7a19492f102c68a48517aa438c29c348a521d025734b699447f69fc66127f9",
+    "reports\\13524022_13524063_Visualisasi_CNN_IEEE_Format.md": "e89c890ca32eee341be07bc7f64cb1434cdcf89f2bbd7409e1bcd0fdc23e9746",
+    "reports\\07_cnn_paper.md": "e89c890ca32eee341be07bc7f64cb1434cdcf89f2bbd7409e1bcd0fdc23e9746",
+    "reports\\07_cnn_paper.pdf": "9a7a19492f102c68a48517aa438c29c348a521d025734b699447f69fc66127f9",
+    "reports\\08_pattern_analysis_validation.md": "c7521e9bc6ab58b9fad55f03de1fbbd7ff29fdd3fc1e4fc41b9e9899189d728c"
+  },
+  "layout": "A4, two columns, 10pt embedded Times New Roman; IEEE-style course report",
+  "figure_count": 8,
+  "table_count": 7
+}

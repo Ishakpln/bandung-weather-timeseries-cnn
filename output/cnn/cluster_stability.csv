@@ -1,0 +1,17 @@
+representation,stability_type,seed_a,seed_b,k_fixed,test_ARI
+cnn1d,encoder_seed,42,43,2,0.7617414667
+cnn1d,encoder_seed,42,44,2,0.5973166758
+cnn1d,encoder_seed,43,44,2,0.5140207044
+cnn2d,encoder_seed,42,43,2,0.6775263353
+cnn2d,encoder_seed,42,44,2,0.7332070814
+cnn2d,encoder_seed,43,44,2,0.733234451
+cnn1d,kmeans_initialization,11,22,2,1
+cnn1d,kmeans_initialization,11,33,2,1
+cnn1d,kmeans_initialization,11,44,2,1
+cnn1d,kmeans_initialization,11,55,2,1
+cnn1d,kmeans_initialization,22,33,2,1
+cnn1d,kmeans_initialization,22,44,2,1
+cnn1d,kmeans_initialization,22,55,2,1
+cnn1d,kmeans_initialization,33,44,2,1
+cnn1d,kmeans_initialization,33,55,2,1
+cnn1d,kmeans_initialization,44,55,2,1

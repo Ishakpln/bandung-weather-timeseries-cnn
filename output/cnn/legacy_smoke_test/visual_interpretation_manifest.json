@@ -1,0 +1,40 @@
+{
+  "source_checkpoints": [
+    "cnn1d.pt",
+    "cnn2d.pt"
+  ],
+  "test_window_start": "2025-01-01 00:00:00+07:00",
+  "test_window_hours": 48,
+  "figures": [
+    {
+      "file": "cnn1d_temporal_response.png",
+      "caption": "Temperature and first-layer activation on the same time axis; visual co-occurrence is not a learned semantic label."
+    },
+    {
+      "file": "cnn1d_intermediate_layers.png",
+      "caption": "Intermediate feature maps at two depths; temporal resolution changes after pooling."
+    },
+    {
+      "file": "cnn2d_feature_map_grid.png",
+      "caption": "Six first-layer CNN 2D feature maps; image axes are pairs of time indices, not physical spatial coordinates."
+    },
+    {
+      "file": "cnn2d_intermediate_layers.png",
+      "caption": "Visual comparison of input recurrence similarity and two CNN 2D intermediate activations; feature map values are not meteorological units."
+    },
+    {
+      "file": "cnn1d_reconstruction_lines.png",
+      "caption": "Two example feature reconstructions on standardized scale; discrepancies are visible, and reconstruction is not forecasting."
+    },
+    {
+      "file": "cnn2d_reconstruction_error.png",
+      "caption": "Input, reconstruction, and pixelwise absolute error in the continuous recurrence similarity image."
+    }
+  ],
+  "limitations": [
+    "Single example window; not representative of all weather conditions",
+    "Activation does not imply causal explanation",
+    "No retraining or new quantitative model evaluation",
+    "2D input is univariate temperature recurrence similarity"
+  ]
+}

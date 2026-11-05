@@ -1,0 +1,362 @@
+{
+  "status": "passed",
+  "scope": "cnn_patterns_and_submission_report",
+  "checks_count": 70,
+  "checks": [
+    {
+      "check": "data_code_artifact_lineage",
+      "passed": true,
+      "detail": "EDA and CNN prerequisite hashes match"
+    },
+    {
+      "check": "train_only_scaler",
+      "passed": true,
+      "detail": "Scaler equals 2022–2023 moments only"
+    },
+    {
+      "check": "real_windows_train",
+      "passed": true,
+      "detail": "Actual weather, exact chronological windows, no duplicated hours"
+    },
+    {
+      "check": "timestamp_labels_train",
+      "passed": true,
+      "detail": "Saved boundaries match original timestamps"
+    },
+    {
+      "check": "real_windows_validation",
+      "passed": true,
+      "detail": "Actual weather, exact chronological windows, no duplicated hours"
+    },
+    {
+      "check": "timestamp_labels_validation",
+      "passed": true,
+      "detail": "Saved boundaries match original timestamps"
+    },
+    {
+      "check": "real_windows_test",
+      "passed": true,
+      "detail": "Actual weather, exact chronological windows, no duplicated hours"
+    },
+    {
+      "check": "timestamp_labels_test",
+      "passed": true,
+      "detail": "Saved boundaries match original timestamps"
+    },
+    {
+      "check": "disjoint_splits_and_tail",
+      "passed": true,
+      "detail": "Splits share no raw rows; incomplete final 24h remains outside CNN only"
+    },
+    {
+      "check": "validation_only_selection_cnn1d",
+      "passed": true,
+      "detail": "Primary seed is validation minimum, not test minimum"
+    },
+    {
+      "check": "checkpoint_validation_mse_cnn1d",
+      "passed": true,
+      "detail": "Loaded checkpoint reproduces its selection metric"
+    },
+    {
+      "check": "checkpoint_test_artifacts_cnn1d",
+      "passed": true,
+      "detail": "Fresh inference matches saved reconstruction and embedding"
+    },
+    {
+      "check": "independent_test_mse_cnn1d",
+      "passed": true,
+      "detail": "Test MSE recomputed from tensors"
+    },
+    {
+      "check": "physical_reconstruction_domains",
+      "passed": true,
+      "detail": "RH/cloud in [0,100]; rain/wind nonnegative within numerical tolerance"
+    },
+    {
+      "check": "best_epoch_cnn1d_42",
+      "passed": true,
+      "detail": "Selected epoch matches recorded history and min_delta policy"
+    },
+    {
+      "check": "best_epoch_cnn1d_43",
+      "passed": true,
+      "detail": "Selected epoch matches recorded history and min_delta policy"
+    },
+    {
+      "check": "best_epoch_cnn1d_44",
+      "passed": true,
+      "detail": "Selected epoch matches recorded history and min_delta policy"
+    },
+    {
+      "check": "validation_only_selection_cnn2d",
+      "passed": true,
+      "detail": "Primary seed is validation minimum, not test minimum"
+    },
+    {
+      "check": "checkpoint_validation_mse_cnn2d",
+      "passed": true,
+      "detail": "Loaded checkpoint reproduces its selection metric"
+    },
+    {
+      "check": "checkpoint_test_artifacts_cnn2d",
+      "passed": true,
+      "detail": "Fresh inference matches saved reconstruction and embedding"
+    },
+    {
+      "check": "independent_test_mse_cnn2d",
+      "passed": true,
+      "detail": "Test MSE recomputed from tensors"
+    },
+    {
+      "check": "best_epoch_cnn2d_42",
+      "passed": true,
+      "detail": "Selected epoch matches recorded history and min_delta policy"
+    },
+    {
+      "check": "best_epoch_cnn2d_43",
+      "passed": true,
+      "detail": "Selected epoch matches recorded history and min_delta policy"
+    },
+    {
+      "check": "best_epoch_cnn2d_44",
+      "passed": true,
+      "detail": "Selected epoch matches recorded history and min_delta policy"
+    },
+    {
+      "check": "train_latent_scaler",
+      "passed": true,
+      "detail": "Latent scaling uses train moments only"
+    },
+    {
+      "check": "train_only_cluster_centroids",
+      "passed": true,
+      "detail": "Re-fitting only train embeddings reproduces saved centroids"
+    },
+    {
+      "check": "saved_centroid_assignment",
+      "passed": true,
+      "detail": "All labels follow frozen train centroids"
+    },
+    {
+      "check": "validation_only_k",
+      "passed": true,
+      "detail": "k maximizes eligible validation silhouette"
+    },
+    {
+      "check": "physical_profile_test_C1",
+      "passed": true,
+      "detail": "Profile independently agrees with underlying window descriptors"
+    },
+    {
+      "check": "physical_profile_test_C2",
+      "passed": true,
+      "detail": "Profile independently agrees with underlying window descriptors"
+    },
+    {
+      "check": "physical_profile_train_C1",
+      "passed": true,
+      "detail": "Profile independently agrees with underlying window descriptors"
+    },
+    {
+      "check": "physical_profile_train_C2",
+      "passed": true,
+      "detail": "Profile independently agrees with underlying window descriptors"
+    },
+    {
+      "check": "physical_profile_validation_C1",
+      "passed": true,
+      "detail": "Profile independently agrees with underlying window descriptors"
+    },
+    {
+      "check": "physical_profile_validation_C2",
+      "passed": true,
+      "detail": "Profile independently agrees with underlying window descriptors"
+    },
+    {
+      "check": "consensus_without_case_removal",
+      "passed": true,
+      "detail": "Consensus count is correct; all 182 windows retained in primary evaluation"
+    },
+    {
+      "check": "train_only_alignment_seed_42",
+      "passed": true,
+      "detail": "Cross-seed label alignment uses train correspondence, not test labels"
+    },
+    {
+      "check": "train_only_alignment_seed_43",
+      "passed": true,
+      "detail": "Cross-seed label alignment uses train correspondence, not test labels"
+    },
+    {
+      "check": "train_only_alignment_seed_44",
+      "passed": true,
+      "detail": "Cross-seed label alignment uses train correspondence, not test labels"
+    },
+    {
+      "check": "encoder_ARI_42_43",
+      "passed": true,
+      "detail": "ARI recomputed from per-window labels"
+    },
+    {
+      "check": "encoder_ARI_42_44",
+      "passed": true,
+      "detail": "ARI recomputed from per-window labels"
+    },
+    {
+      "check": "encoder_ARI_43_44",
+      "passed": true,
+      "detail": "ARI recomputed from per-window labels"
+    },
+    {
+      "check": "figure_cnn1d_loss.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn1d_pca.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn2d_loss.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn2d_pca.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_pattern_embedding.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cluster_profiles.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_representative_windows.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cluster_month_frequency.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_reconstruction_benchmarks.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn_seed_stability.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn1d_temporal_response.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn1d_intermediate_layers.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn1d_kernels.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn1d_reconstruction_lines.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn2d_reconstruction_error.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn2d_feature_map_grid.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_cnn2d_intermediate_layers.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "figure_recurrence_example.png",
+      "passed": true,
+      "detail": "Valid nonempty 300-dpi PNG"
+    },
+    {
+      "check": "paper_builder_and_pattern_lineage",
+      "passed": true,
+      "detail": "Paper built from current code and pattern results"
+    },
+    {
+      "check": "paper_hash_reports\\13524022_13524063_Visualisasi_CNN_IEEE_Format.pdf",
+      "passed": true,
+      "detail": "Paper/source artifact hash matches"
+    },
+    {
+      "check": "paper_hash_reports\\13524022_13524063_Visualisasi_CNN_IEEE_Format.md",
+      "passed": true,
+      "detail": "Paper/source artifact hash matches"
+    },
+    {
+      "check": "paper_hash_reports\\07_cnn_paper.md",
+      "passed": true,
+      "detail": "Paper/source artifact hash matches"
+    },
+    {
+      "check": "paper_hash_reports\\07_cnn_paper.pdf",
+      "passed": true,
+      "detail": "Paper/source artifact hash matches"
+    },
+    {
+      "check": "paper_hash_reports\\08_pattern_analysis_validation.md",
+      "passed": true,
+      "detail": "Paper/source artifact hash matches"
+    },
+    {
+      "check": "paper_contains_current_results",
+      "passed": true,
+      "detail": "Current findings and author identifiers present; obsolete smoke-test result absent"
+    },
+    {
+      "check": "paper_no_placeholder",
+      "passed": true,
+      "detail": "No unfinished placeholders"
+    },
+    {
+      "check": "paper_fonts_and_A4",
+      "passed": true,
+      "detail": "Embedded TrueType fonts and A4 pages"
+    },
+    {
+      "check": "all_pdf_pages_render_and_fit",
+      "passed": true,
+      "detail": "All pages rendered; no text bounding boxes outside page"
+    },
+    {
+      "check": "raw_unchanged",
+      "passed": true,
+      "detail": "Original weather CSV unchanged"
+    }
+  ],
+  "pdf_pages": 7,
+  "figures": 18,
+  "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
+  "pdf_sha256": "9a7a19492f102c68a48517aa438c29c348a521d025734b699447f69fc66127f9",
+  "forecasting_performed": false
+}

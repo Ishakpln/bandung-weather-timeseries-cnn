@@ -1,40 +1,188 @@
 {
-  "source_checkpoints": [
-    "cnn1d.pt",
-    "cnn2d.pt"
-  ],
-  "test_window_start": "2025-01-01 00:00:00+07:00",
-  "test_window_hours": 48,
   "figures": [
     {
+      "file": "cnn1d_loss.png",
+      "caption": "Kurva train/validation semua seed; checkpoint dipilih hanya dari validation.",
+      "sources": [
+        "cnn1d_seed42_training.csv",
+        "cnn1d_seed43_training.csv",
+        "cnn1d_seed44_training.csv"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "cnn1d_pca.png",
+      "caption": "PCA difit pada embedding train; warna bulan bukan label kelas cuaca.",
+      "sources": [
+        "cnn1d_test_pca.npy",
+        "window_metadata.csv"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "cnn2d_loss.png",
+      "caption": "Kurva train/validation semua seed; checkpoint dipilih hanya dari validation.",
+      "sources": [
+        "cnn2d_seed42_training.csv",
+        "cnn2d_seed43_training.csv",
+        "cnn2d_seed44_training.csv"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "cnn2d_pca.png",
+      "caption": "PCA difit pada embedding train; warna bulan bukan label kelas cuaca.",
+      "sources": [
+        "cnn2d_test_pca.npy",
+        "window_metadata.csv"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "pattern_embedding.png",
+      "caption": "Kelompok ditetapkan di embedding penuh; proyeksi dua dimensi hanya untuk tampilan.",
+      "sources": [
+        "cnn1d_test_cluster_labels.npy",
+        "cnn1d_test_pca.npy"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "cluster_profiles.png",
+      "caption": "Median/IQR dari window cuaca asli tiap kelompok; pita bukan confidence interval.",
+      "sources": [
+        "window_cluster_assignments.csv",
+        "cnn1d_test_input.npy",
+        "scaler.json"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "representative_windows.png",
+      "caption": "Contoh nyata terdekat dengan centroid train pada setiap kelompok test; tidak ada kurva sintetis.",
+      "sources": [
+        "representative_windows.csv",
+        "cnn1d_test_reconstruction.npy"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "cluster_month_frequency.png",
+      "caption": "Persentase per bulan; label bulan mengikuti awal window; jumlah window dicantumkan.",
+      "sources": [
+        "test_cluster_month_counts.csv",
+        "test_cluster_month_percentages.csv"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "reconstruction_benchmarks.png",
+      "caption": "Pembanding hanya dibandingkan dalam ruang target yang sama; seluruh parameter pembanding berasal dari train.",
+      "sources": [
+        "reconstruction_benchmarks.csv"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "cnn_seed_stability.png",
+      "caption": "Tiga pasangan seed per arsitektur; garis menunjukkan rerata; ARI mengukur kesepakatan label, bukan akurasi kelas cuaca.",
+      "sources": [
+        "cluster_stability.csv"
+      ],
+      "dpi": 300
+    },
+    {
       "file": "cnn1d_temporal_response.png",
-      "caption": "Temperature and first-layer activation on the same time axis; visual co-occurrence is not a learned semantic label."
+      "caption": "Aktivasi bersamaan dengan suhu; respons mencampur tujuh kanal sehingga bukan atribusi khusus suhu.",
+      "sources": [
+        "cnn1d.pt",
+        "representative_windows.csv"
+      ],
+      "dpi": 300
     },
     {
       "file": "cnn1d_intermediate_layers.png",
-      "caption": "Intermediate feature maps at two depths; temporal resolution changes after pooling."
+      "caption": "Dua kedalaman encoder; skala warna ditampilkan terpisah dan bukan satuan cuaca.",
+      "sources": [
+        "cnn1d.pt"
+      ],
+      "dpi": 300
     },
     {
-      "file": "cnn2d_feature_map_grid.png",
-      "caption": "Six first-layer CNN 2D feature maps; image axes are pairs of time indices, not physical spatial coordinates."
-    },
-    {
-      "file": "cnn2d_intermediate_layers.png",
-      "caption": "Visual comparison of input recurrence similarity and two CNN 2D intermediate activations; feature map values are not meteorological units."
+      "file": "cnn1d_kernels.png",
+      "caption": "Bobot pada input terstandardisasi; batas tiap kanal diberi garis; bukan importance atau hubungan kausal.",
+      "sources": [
+        "cnn1d.pt"
+      ],
+      "dpi": 300
     },
     {
       "file": "cnn1d_reconstruction_lines.png",
-      "caption": "Two example feature reconstructions on standardized scale; discrepancies are visible, and reconstruction is not forecasting."
+      "caption": "Rekonstruksi ditampilkan dalam satuan fisik pada window representatif; ini bukan prediksi masa depan.",
+      "sources": [
+        "cnn1d_test_reconstruction.npy",
+        "scaler.json"
+      ],
+      "dpi": 300
     },
     {
       "file": "cnn2d_reconstruction_error.png",
-      "caption": "Input, reconstruction, and pixelwise absolute error in the continuous recurrence similarity image."
+      "caption": "Citra kemiripan dan galat pada skala 0–1 yang sama; diagonal/simetri berasal dari transformasi.",
+      "sources": [
+        "cnn2d_test_input.npy",
+        "cnn2d_test_reconstruction.npy"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "cnn2d_feature_map_grid.png",
+      "caption": "Enam feature maps CNN 2D; koordinat adalah pasangan waktu, bukan lokasi geografis.",
+      "sources": [
+        "cnn2d.pt"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "cnn2d_intermediate_layers.png",
+      "caption": "Resolusi aktivasi 32×32 dan 16×16; skala warna per layer.",
+      "sources": [
+        "cnn2d.pt"
+      ],
+      "dpi": 300
+    },
+    {
+      "file": "recurrence_example.png",
+      "caption": "32 sampel aktual dari window 48 jam; min–max menghilangkan level suhu absolut; citra bukan recurrence plot biner.",
+      "sources": [
+        "cnn2d_test_input.npy",
+        "representative_windows.csv"
+      ],
+      "dpi": 300
+    }
+  ],
+  "dpi": 300,
+  "representative_windows": [
+    {
+      "cluster": 1,
+      "test_window_id": 25,
+      "start": "2025-02-20T00:00:00+07:00",
+      "end": "2025-02-21T23:00:00+07:00",
+      "start_row": 27504
+    },
+    {
+      "cluster": 2,
+      "test_window_id": 140,
+      "start": "2025-10-08T00:00:00+07:00",
+      "end": "2025-10-09T23:00:00+07:00",
+      "start_row": 33024
     }
   ],
   "limitations": [
-    "Single example window; not representative of all weather conditions",
-    "Activation does not imply causal explanation",
-    "No retraining or new quantitative model evaluation",
-    "2D input is univariate temperature recurrence similarity"
+    "Exploratory results; test year was viewed in EDA",
+    "Clusters are algorithmic partitions, not confirmed weather classes",
+    "Silhouettes in different representation spaces are not directly comparable superiority scores",
+    "Fixed 48h windows, one location and three encoder seeds",
+    "Month labels refer to window start; windows may span months",
+    "No causal attribution, anomaly ground truth, forecast, or long-term climatology"
   ]
 }

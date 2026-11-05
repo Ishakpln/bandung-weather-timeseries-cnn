@@ -1,36 +1,10 @@
 {
-  "cnn1d": {
-    "elapsed_seconds": 0.95,
-    "epochs": 3,
-    "samples": {
-      "train": 365,
-      "validation": 183,
-      "test": 182
-    },
-    "mse": {
-      "train": 0.9179233908653259,
-      "validation": 1.0841615200042725,
-      "test": 0.8923760056495667
-    }
-  },
-  "cnn2d": {
-    "elapsed_seconds": 0.56,
-    "epochs": 3,
-    "samples": {
-      "train": 365,
-      "validation": 183,
-      "test": 182
-    },
-    "mse": {
-      "train": 0.09177137166261673,
-      "validation": 0.09127634763717651,
-      "test": 0.0908084362745285
-    }
-  },
   "configuration": {
-    "seed": 42,
+    "objective": "representation_learning_and_pattern_analysis",
+    "forecasting": false,
+    "architecture_version": "pattern_v3_physical_bounds",
     "window_hours": 48,
-    "recurrence": "exp(-abs(normalized_temperature_difference)/0.25); 32x32",
+    "stride_hours": 48,
     "features": [
       "temperature_2m",
       "relative_humidity_2m",
@@ -40,15 +14,919 @@
       "cloud_cover",
       "wind_speed_10m"
     ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "epochs_max": 150,
+    "patience": 20,
+    "min_delta": 1e-05,
+    "batch": 32,
+    "lr": 0.001,
+    "optimizer": "Adam",
+    "weight_decay": 1e-05,
+    "gradient_clip_norm": 5,
+    "torch": "2.10.0+cpu",
+    "sklearn": "1.9.1",
+    "numpy": "2.3.4",
+    "python": "3.13.9",
+    "threads": 2,
+    "deterministic_algorithms": true,
+    "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
     "chronological_split": {
       "train": "2022-2023",
       "validation": "2024",
       "test": "2025"
     },
-    "optimizer": "Adam",
-    "lr": 0.001,
-    "batch": 64,
-    "torch": "2.10.0+cpu",
-    "note": "1D and 2D reconstruction losses have different target spaces; do not rank models by raw MSE."
+    "selection": "minimum validation reconstruction MSE; test never selects model",
+    "test_exposure": "2025 examined during prior EDA; results remain exploratory",
+    "recurrence": "32 real samples; exp(-abs(per-window-minmax difference)/0.25)",
+    "output_constraints_1d": "RH/cloud in [0,100]%; precipitation/wind >=0; bounds scaled using train moments",
+    "note": "1D and 2D MSE have different target spaces and must not be ranked together"
+  },
+  "cnn1d": {
+    "selected_seed": 44,
+    "samples": {
+      "train": 365,
+      "validation": 183,
+      "test": 182
+    },
+    "selected_metrics": {
+      "train": {
+        "mse": 0.05138469859957695,
+        "mae": 0.14410465955734253,
+        "per_feature": [
+          {
+            "feature": "temperature_2m",
+            "mse_standardized": 0.025064902380108833,
+            "mae_original_units": 0.39091691165742903,
+            "rmse_original_units": 0.5106248696102077,
+            "mean_window_temporal_correlation": 0.9830754458078937,
+            "nonconstant_windows_for_correlation": 365
+          },
+          {
+            "feature": "relative_humidity_2m",
+            "mse_standardized": 0.031007392331957817,
+            "mae_original_units": 1.9351474276828833,
+            "rmse_original_units": 2.5427521305866385,
+            "mean_window_temporal_correlation": 0.9716382326632814,
+            "nonconstant_windows_for_correlation": 365
+          },
+          {
+            "feature": "dew_point_2m",
+            "mse_standardized": 0.03994958475232124,
+            "mae_original_units": 0.27501689160560383,
+            "rmse_original_units": 0.37323947785917555,
+            "mean_window_temporal_correlation": 0.9417041251469921,
+            "nonconstant_windows_for_correlation": 365
+          },
+          {
+            "feature": "precipitation",
+            "mse_standardized": 0.04002975672483444,
+            "mae_original_units": 0.06786611083475677,
+            "rmse_original_units": 0.18137309811724955,
+            "mean_window_temporal_correlation": 0.7525114503929157,
+            "nonconstant_windows_for_correlation": 294
+          },
+          {
+            "feature": "pressure_msl",
+            "mse_standardized": 0.027300182729959488,
+            "mae_original_units": 0.251694825133651,
+            "rmse_original_units": 0.3239644755021632,
+            "mean_window_temporal_correlation": 0.9726033001165527,
+            "nonconstant_windows_for_correlation": 365
+          },
+          {
+            "feature": "cloud_cover",
+            "mse_standardized": 0.08030705899000168,
+            "mae_original_units": 4.635755668560024,
+            "rmse_original_units": 8.813306342654748,
+            "mean_window_temporal_correlation": 0.7970389759767531,
+            "nonconstant_windows_for_correlation": 358
+          },
+          {
+            "feature": "wind_speed_10m",
+            "mse_standardized": 0.11603401601314545,
+            "mae_original_units": 0.8517630887496257,
+            "rmse_original_units": 1.1425142390359802,
+            "mean_window_temporal_correlation": 0.8815430301831698,
+            "nonconstant_windows_for_correlation": 365
+          }
+        ]
+      },
+      "validation": {
+        "mse": 0.06131824105978012,
+        "mae": 0.1555987149477005,
+        "per_feature": [
+          {
+            "feature": "temperature_2m",
+            "mse_standardized": 0.028127476572990417,
+            "mae_original_units": 0.41243401978258964,
+            "rmse_original_units": 0.5409215891742707,
+            "mean_window_temporal_correlation": 0.9796438483371542,
+            "nonconstant_windows_for_correlation": 183
+          },
+          {
+            "feature": "relative_humidity_2m",
+            "mse_standardized": 0.03664514422416687,
+            "mae_original_units": 2.0823651077287875,
+            "rmse_original_units": 2.7642645204744833,
+            "mean_window_temporal_correlation": 0.9637415894868465,
+            "nonconstant_windows_for_correlation": 183
+          },
+          {
+            "feature": "dew_point_2m",
+            "mse_standardized": 0.050767842680215836,
+            "mae_original_units": 0.3013690783314034,
+            "rmse_original_units": 0.42075162185912174,
+            "mean_window_temporal_correlation": 0.9272348706061547,
+            "nonconstant_windows_for_correlation": 183
+          },
+          {
+            "feature": "precipitation",
+            "mse_standardized": 0.07284978032112122,
+            "mae_original_units": 0.084063781805604,
+            "rmse_original_units": 0.24467835249868508,
+            "mean_window_temporal_correlation": 0.7743306185324129,
+            "nonconstant_windows_for_correlation": 143
+          },
+          {
+            "feature": "pressure_msl",
+            "mse_standardized": 0.03245067223906517,
+            "mae_original_units": 0.27286907220388557,
+            "rmse_original_units": 0.3532047017192105,
+            "mean_window_temporal_correlation": 0.9668447714022558,
+            "nonconstant_windows_for_correlation": 183
+          },
+          {
+            "feature": "cloud_cover",
+            "mse_standardized": 0.09089716523885727,
+            "mae_original_units": 5.181621280320311,
+            "rmse_original_units": 9.376422128384654,
+            "mean_window_temporal_correlation": 0.8227381513919485,
+            "nonconstant_windows_for_correlation": 181
+          },
+          {
+            "feature": "wind_speed_10m",
+            "mse_standardized": 0.11748959124088287,
+            "mae_original_units": 0.8627012310623812,
+            "rmse_original_units": 1.1496579624010153,
+            "mean_window_temporal_correlation": 0.8753680464811995,
+            "nonconstant_windows_for_correlation": 183
+          }
+        ]
+      },
+      "test": {
+        "mse": 0.05780888348817825,
+        "mae": 0.14970913529396057,
+        "per_feature": [
+          {
+            "feature": "temperature_2m",
+            "mse_standardized": 0.02475178986787796,
+            "mae_original_units": 0.38823746198567893,
+            "rmse_original_units": 0.5074254284454305,
+            "mean_window_temporal_correlation": 0.9797497778917823,
+            "nonconstant_windows_for_correlation": 182
+          },
+          {
+            "feature": "relative_humidity_2m",
+            "mse_standardized": 0.030120806768536568,
+            "mae_original_units": 1.9180709367951114,
+            "rmse_original_units": 2.506136257533245,
+            "mean_window_temporal_correlation": 0.9720587534510202,
+            "nonconstant_windows_for_correlation": 182
+          },
+          {
+            "feature": "dew_point_2m",
+            "mse_standardized": 0.03934202343225479,
+            "mae_original_units": 0.2808217393535096,
+            "rmse_original_units": 0.3703904521733817,
+            "mean_window_temporal_correlation": 0.9114806920009669,
+            "nonconstant_windows_for_correlation": 182
+          },
+          {
+            "feature": "precipitation",
+            "mse_standardized": 0.07900967448949814,
+            "mae_original_units": 0.09677956031169917,
+            "rmse_original_units": 0.2548129736823498,
+            "mean_window_temporal_correlation": 0.7502428390048009,
+            "nonconstant_windows_for_correlation": 164
+          },
+          {
+            "feature": "pressure_msl",
+            "mse_standardized": 0.03284814953804016,
+            "mae_original_units": 0.27179073337071685,
+            "rmse_original_units": 0.3553612625177867,
+            "mean_window_temporal_correlation": 0.9655038069909212,
+            "nonconstant_windows_for_correlation": 182
+          },
+          {
+            "feature": "cloud_cover",
+            "mse_standardized": 0.08964629471302032,
+            "mae_original_units": 4.726499007753995,
+            "rmse_original_units": 9.311682187939018,
+            "mean_window_temporal_correlation": 0.8318759618931134,
+            "nonconstant_windows_for_correlation": 180
+          },
+          {
+            "feature": "wind_speed_10m",
+            "mse_standardized": 0.10894343256950378,
+            "mae_original_units": 0.8285342177176059,
+            "rmse_original_units": 1.1070557138362518,
+            "mean_window_temporal_correlation": 0.8988894253363333,
+            "nonconstant_windows_for_correlation": 182
+          }
+        ]
+      }
+    },
+    "runs": [
+      {
+        "seed": 42,
+        "epochs_completed": 150,
+        "best_epoch": 149,
+        "validation_selection_mse": 0.07336463779211044,
+        "training_elapsed_seconds": 16.594,
+        "metrics": {
+          "train": {
+            "mse": 0.055781204253435135,
+            "mae": 0.14625225961208344,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.0251164548099041,
+                "mae_original_units": 0.3895040746575198,
+                "rmse_original_units": 0.5111496911919681,
+                "mean_window_temporal_correlation": 0.9834501284943706,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.03343769907951355,
+                "mae_original_units": 1.9618248049874274,
+                "rmse_original_units": 2.6405206946381883,
+                "mean_window_temporal_correlation": 0.9697970806641583,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.039325863122940063,
+                "mae_original_units": 0.27306951338771873,
+                "rmse_original_units": 0.37031437575523324,
+                "mean_window_temporal_correlation": 0.943487639502537,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.05740448087453842,
+                "mae_original_units": 0.07683376804357972,
+                "rmse_original_units": 0.2171972448046,
+                "mean_window_temporal_correlation": 0.7477905859913738,
+                "nonconstant_windows_for_correlation": 274
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.023770159110426903,
+                "mae_original_units": 0.22848773639860662,
+                "rmse_original_units": 0.3022947967749967,
+                "mean_window_temporal_correlation": 0.9762543723649759,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.08803464472293854,
+                "mae_original_units": 4.9006366476762,
+                "rmse_original_units": 9.227600623744731,
+                "mean_window_temporal_correlation": 0.7881644358630785,
+                "nonconstant_windows_for_correlation": 357
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.12337911128997803,
+                "mae_original_units": 0.8789086777700016,
+                "rmse_original_units": 1.1781207025929956,
+                "mean_window_temporal_correlation": 0.8742015880366898,
+                "nonconstant_windows_for_correlation": 365
+              }
+            ]
+          },
+          "validation": {
+            "mse": 0.07336463779211044,
+            "mae": 0.15949130058288574,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.027781158685684204,
+                "mae_original_units": 0.4092982108315717,
+                "rmse_original_units": 0.5375812343760026,
+                "mean_window_temporal_correlation": 0.979549721931466,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.03993391990661621,
+                "mae_original_units": 2.1350491623454717,
+                "rmse_original_units": 2.8856414230138756,
+                "mean_window_temporal_correlation": 0.960271132237601,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.04984956234693527,
+                "mae_original_units": 0.29955089645933514,
+                "rmse_original_units": 0.4169290183685816,
+                "mean_window_temporal_correlation": 0.9317371364708813,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.14692044258117676,
+                "mae_original_units": 0.10635067494423135,
+                "rmse_original_units": 0.34747416975813966,
+                "mean_window_temporal_correlation": 0.7494451174063402,
+                "nonconstant_windows_for_correlation": 137
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.028434855863451958,
+                "mae_original_units": 0.24527408111295096,
+                "rmse_original_units": 0.3306283921171101,
+                "mean_window_temporal_correlation": 0.9699879831118741,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.09383462369441986,
+                "mae_original_units": 5.305697592759664,
+                "rmse_original_units": 9.526722894645376,
+                "mean_window_temporal_correlation": 0.8079344146845899,
+                "nonconstant_windows_for_correlation": 181
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.12679791450500488,
+                "mae_original_units": 0.8997465950607149,
+                "rmse_original_units": 1.1943318477595484,
+                "mean_window_temporal_correlation": 0.8664835703938307,
+                "nonconstant_windows_for_correlation": 183
+              }
+            ]
+          },
+          "test": {
+            "mse": 0.0666375681757927,
+            "mae": 0.15154626965522766,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.022840220481157303,
+                "mae_original_units": 0.3650918930486523,
+                "rmse_original_units": 0.4874376561767896,
+                "mean_window_temporal_correlation": 0.9812838910212611,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.03389395400881767,
+                "mae_original_units": 1.9856857587435028,
+                "rmse_original_units": 2.65847445336973,
+                "mean_window_temporal_correlation": 0.9716588949787359,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.038985058665275574,
+                "mae_original_units": 0.277110300928991,
+                "rmse_original_units": 0.36870628055361865,
+                "mean_window_temporal_correlation": 0.9122141290841987,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.13319255411624908,
+                "mae_original_units": 0.11250384552478518,
+                "rmse_original_units": 0.3308425573399028,
+                "mean_window_temporal_correlation": 0.7655261629392031,
+                "nonconstant_windows_for_correlation": 150
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.027374451979994774,
+                "mae_original_units": 0.24224554073065518,
+                "rmse_original_units": 0.3244048624435405,
+                "mean_window_temporal_correlation": 0.9715369487043914,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.09469719231128693,
+                "mae_original_units": 4.933514071368559,
+                "rmse_original_units": 9.570410235808529,
+                "mean_window_temporal_correlation": 0.8204208610586217,
+                "nonconstant_windows_for_correlation": 180
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.11547956615686417,
+                "mae_original_units": 0.8567346172212753,
+                "rmse_original_units": 1.1397813777601458,
+                "mean_window_temporal_correlation": 0.8941522361627073,
+                "nonconstant_windows_for_correlation": 182
+              }
+            ]
+          }
+        }
+      },
+      {
+        "seed": 43,
+        "epochs_completed": 150,
+        "best_epoch": 150,
+        "validation_selection_mse": 0.06725022941827774,
+        "training_elapsed_seconds": 22.803,
+        "metrics": {
+          "train": {
+            "mse": 0.05402016639709473,
+            "mae": 0.14865463972091675,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.025943124666810036,
+                "mae_original_units": 0.3985322794692844,
+                "rmse_original_units": 0.5194934411908535,
+                "mean_window_temporal_correlation": 0.9824616518901366,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.032701488584280014,
+                "mae_original_units": 1.9883894306731011,
+                "rmse_original_units": 2.611290267795667,
+                "mean_window_temporal_correlation": 0.9702847395406565,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.04064207896590233,
+                "mae_original_units": 0.2773271493293679,
+                "rmse_original_units": 0.3764604821688933,
+                "mean_window_temporal_correlation": 0.9410697860748304,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.04208524897694588,
+                "mae_original_units": 0.07010297471177752,
+                "rmse_original_units": 0.1859714806987257,
+                "mean_window_temporal_correlation": 0.76303399378276,
+                "nonconstant_windows_for_correlation": 277
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.031970128417015076,
+                "mae_original_units": 0.2727328920450745,
+                "rmse_original_units": 0.3505797349334943,
+                "mean_window_temporal_correlation": 0.9683166942980718,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.08468272536993027,
+                "mae_original_units": 4.88529208892736,
+                "rmse_original_units": 9.050225477029636,
+                "mean_window_temporal_correlation": 0.7833982628319778,
+                "nonconstant_windows_for_correlation": 359
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.12011638283729553,
+                "mae_original_units": 0.8629775159404501,
+                "rmse_original_units": 1.1624387369287936,
+                "mean_window_temporal_correlation": 0.8778782789507827,
+                "nonconstant_windows_for_correlation": 365
+              }
+            ]
+          },
+          "validation": {
+            "mse": 0.06725022941827774,
+            "mae": 0.1632913053035736,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.03005794808268547,
+                "mae_original_units": 0.42953046729310773,
+                "rmse_original_units": 0.559176104526739,
+                "mean_window_temporal_correlation": 0.9789920303862192,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.03905539959669113,
+                "mae_original_units": 2.1749234280793193,
+                "rmse_original_units": 2.853723677529989,
+                "mean_window_temporal_correlation": 0.9612965535778208,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.05589919909834862,
+                "mae_original_units": 0.32159266122840596,
+                "rmse_original_units": 0.4415035657758031,
+                "mean_window_temporal_correlation": 0.924259613660077,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.08744968473911285,
+                "mae_original_units": 0.09239175901597063,
+                "rmse_original_units": 0.26807760896060556,
+                "mean_window_temporal_correlation": 0.7823434449649924,
+                "nonconstant_windows_for_correlation": 137
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.037395134568214417,
+                "mae_original_units": 0.289767157106467,
+                "rmse_original_units": 0.37915968751634893,
+                "mean_window_temporal_correlation": 0.9629017802028295,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.09595130383968353,
+                "mae_original_units": 5.39267048316077,
+                "rmse_original_units": 9.633573594789892,
+                "mean_window_temporal_correlation": 0.8219710782698934,
+                "nonconstant_windows_for_correlation": 179
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.12494292855262756,
+                "mae_original_units": 0.8852286443766552,
+                "rmse_original_units": 1.18556350133979,
+                "mean_window_temporal_correlation": 0.8676697998125871,
+                "nonconstant_windows_for_correlation": 183
+              }
+            ]
+          },
+          "test": {
+            "mse": 0.060844626277685165,
+            "mae": 0.15543070435523987,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.024668198078870773,
+                "mae_original_units": 0.391956053583256,
+                "rmse_original_units": 0.5065678834377978,
+                "mean_window_temporal_correlation": 0.9793019802520505,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.031953226774930954,
+                "mae_original_units": 1.973062956801121,
+                "rmse_original_units": 2.581242176541488,
+                "mean_window_temporal_correlation": 0.9698871589745648,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.0430874228477478,
+                "mae_original_units": 0.2913099059416873,
+                "rmse_original_units": 0.3876204530596887,
+                "mean_window_temporal_correlation": 0.9017849686315939,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.08000078052282333,
+                "mae_original_units": 0.09781059676150175,
+                "rmse_original_units": 0.2564061996215516,
+                "mean_window_temporal_correlation": 0.7712313337078845,
+                "nonconstant_windows_for_correlation": 151
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.03970947116613388,
+                "mae_original_units": 0.3033772844136903,
+                "rmse_original_units": 0.39071641904125043,
+                "mean_window_temporal_correlation": 0.9597748588059704,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.09330084174871445,
+                "mae_original_units": 4.949972710611259,
+                "rmse_original_units": 9.499588268573616,
+                "mean_window_temporal_correlation": 0.813639088935258,
+                "nonconstant_windows_for_correlation": 180
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.11319243907928467,
+                "mae_original_units": 0.8454406231842342,
+                "rmse_original_units": 1.128437904340093,
+                "mean_window_temporal_correlation": 0.8966277414743641,
+                "nonconstant_windows_for_correlation": 182
+              }
+            ]
+          }
+        }
+      },
+      {
+        "seed": 44,
+        "epochs_completed": 150,
+        "best_epoch": 150,
+        "validation_selection_mse": 0.06131824105978012,
+        "training_elapsed_seconds": 14.94,
+        "metrics": {
+          "train": {
+            "mse": 0.05138469859957695,
+            "mae": 0.14410465955734253,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.025064902380108833,
+                "mae_original_units": 0.39091691165742903,
+                "rmse_original_units": 0.5106248696102077,
+                "mean_window_temporal_correlation": 0.9830754458078937,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.031007392331957817,
+                "mae_original_units": 1.9351474276828833,
+                "rmse_original_units": 2.5427521305866385,
+                "mean_window_temporal_correlation": 0.9716382326632814,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.03994958475232124,
+                "mae_original_units": 0.27501689160560383,
+                "rmse_original_units": 0.37323947785917555,
+                "mean_window_temporal_correlation": 0.9417041251469921,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.04002975672483444,
+                "mae_original_units": 0.06786611083475677,
+                "rmse_original_units": 0.18137309811724955,
+                "mean_window_temporal_correlation": 0.7525114503929157,
+                "nonconstant_windows_for_correlation": 294
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.027300182729959488,
+                "mae_original_units": 0.251694825133651,
+                "rmse_original_units": 0.3239644755021632,
+                "mean_window_temporal_correlation": 0.9726033001165527,
+                "nonconstant_windows_for_correlation": 365
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.08030705899000168,
+                "mae_original_units": 4.635755668560024,
+                "rmse_original_units": 8.813306342654748,
+                "mean_window_temporal_correlation": 0.7970389759767531,
+                "nonconstant_windows_for_correlation": 358
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.11603401601314545,
+                "mae_original_units": 0.8517630887496257,
+                "rmse_original_units": 1.1425142390359802,
+                "mean_window_temporal_correlation": 0.8815430301831698,
+                "nonconstant_windows_for_correlation": 365
+              }
+            ]
+          },
+          "validation": {
+            "mse": 0.06131824105978012,
+            "mae": 0.1555987149477005,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.028127476572990417,
+                "mae_original_units": 0.41243401978258964,
+                "rmse_original_units": 0.5409215891742707,
+                "mean_window_temporal_correlation": 0.9796438483371542,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.03664514422416687,
+                "mae_original_units": 2.0823651077287875,
+                "rmse_original_units": 2.7642645204744833,
+                "mean_window_temporal_correlation": 0.9637415894868465,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.050767842680215836,
+                "mae_original_units": 0.3013690783314034,
+                "rmse_original_units": 0.42075162185912174,
+                "mean_window_temporal_correlation": 0.9272348706061547,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.07284978032112122,
+                "mae_original_units": 0.084063781805604,
+                "rmse_original_units": 0.24467835249868508,
+                "mean_window_temporal_correlation": 0.7743306185324129,
+                "nonconstant_windows_for_correlation": 143
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.03245067223906517,
+                "mae_original_units": 0.27286907220388557,
+                "rmse_original_units": 0.3532047017192105,
+                "mean_window_temporal_correlation": 0.9668447714022558,
+                "nonconstant_windows_for_correlation": 183
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.09089716523885727,
+                "mae_original_units": 5.181621280320311,
+                "rmse_original_units": 9.376422128384654,
+                "mean_window_temporal_correlation": 0.8227381513919485,
+                "nonconstant_windows_for_correlation": 181
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.11748959124088287,
+                "mae_original_units": 0.8627012310623812,
+                "rmse_original_units": 1.1496579624010153,
+                "mean_window_temporal_correlation": 0.8753680464811995,
+                "nonconstant_windows_for_correlation": 183
+              }
+            ]
+          },
+          "test": {
+            "mse": 0.05780888348817825,
+            "mae": 0.14970913529396057,
+            "per_feature": [
+              {
+                "feature": "temperature_2m",
+                "mse_standardized": 0.02475178986787796,
+                "mae_original_units": 0.38823746198567893,
+                "rmse_original_units": 0.5074254284454305,
+                "mean_window_temporal_correlation": 0.9797497778917823,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "relative_humidity_2m",
+                "mse_standardized": 0.030120806768536568,
+                "mae_original_units": 1.9180709367951114,
+                "rmse_original_units": 2.506136257533245,
+                "mean_window_temporal_correlation": 0.9720587534510202,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "dew_point_2m",
+                "mse_standardized": 0.03934202343225479,
+                "mae_original_units": 0.2808217393535096,
+                "rmse_original_units": 0.3703904521733817,
+                "mean_window_temporal_correlation": 0.9114806920009669,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "precipitation",
+                "mse_standardized": 0.07900967448949814,
+                "mae_original_units": 0.09677956031169917,
+                "rmse_original_units": 0.2548129736823498,
+                "mean_window_temporal_correlation": 0.7502428390048009,
+                "nonconstant_windows_for_correlation": 164
+              },
+              {
+                "feature": "pressure_msl",
+                "mse_standardized": 0.03284814953804016,
+                "mae_original_units": 0.27179073337071685,
+                "rmse_original_units": 0.3553612625177867,
+                "mean_window_temporal_correlation": 0.9655038069909212,
+                "nonconstant_windows_for_correlation": 182
+              },
+              {
+                "feature": "cloud_cover",
+                "mse_standardized": 0.08964629471302032,
+                "mae_original_units": 4.726499007753995,
+                "rmse_original_units": 9.311682187939018,
+                "mean_window_temporal_correlation": 0.8318759618931134,
+                "nonconstant_windows_for_correlation": 180
+              },
+              {
+                "feature": "wind_speed_10m",
+                "mse_standardized": 0.10894343256950378,
+                "mae_original_units": 0.8285342177176059,
+                "rmse_original_units": 1.1070557138362518,
+                "mean_window_temporal_correlation": 0.8988894253363333,
+                "nonconstant_windows_for_correlation": 182
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "mse": {
+      "train": 0.05138469859957695,
+      "validation": 0.06131824105978012,
+      "test": 0.05780888348817825
+    },
+    "test_mse_mean_across_seeds": 0.061763692647218704,
+    "test_mse_std_across_seeds": 0.004485524559294609
+  },
+  "cnn2d": {
+    "selected_seed": 43,
+    "samples": {
+      "train": 365,
+      "validation": 183,
+      "test": 182
+    },
+    "selected_metrics": {
+      "train": {
+        "mse": 0.011076705530285835,
+        "mae": 0.07184375822544098
+      },
+      "validation": {
+        "mse": 0.011724133044481277,
+        "mae": 0.07400332391262054
+      },
+      "test": {
+        "mse": 0.010927701368927956,
+        "mae": 0.07239355891942978
+      }
+    },
+    "runs": [
+      {
+        "seed": 42,
+        "epochs_completed": 150,
+        "best_epoch": 150,
+        "validation_selection_mse": 0.012180733494460583,
+        "training_elapsed_seconds": 39.94,
+        "metrics": {
+          "train": {
+            "mse": 0.011491416022181511,
+            "mae": 0.07364970445632935
+          },
+          "validation": {
+            "mse": 0.012180733494460583,
+            "mae": 0.07602756470441818
+          },
+          "test": {
+            "mse": 0.01133690681308508,
+            "mae": 0.0739264041185379
+          }
+        }
+      },
+      {
+        "seed": 43,
+        "epochs_completed": 150,
+        "best_epoch": 149,
+        "validation_selection_mse": 0.011724133044481277,
+        "training_elapsed_seconds": 42.229,
+        "metrics": {
+          "train": {
+            "mse": 0.011076705530285835,
+            "mae": 0.07184375822544098
+          },
+          "validation": {
+            "mse": 0.011724133044481277,
+            "mae": 0.07400332391262054
+          },
+          "test": {
+            "mse": 0.010927701368927956,
+            "mae": 0.07239355891942978
+          }
+        }
+      },
+      {
+        "seed": 44,
+        "epochs_completed": 150,
+        "best_epoch": 146,
+        "validation_selection_mse": 0.01228137593716383,
+        "training_elapsed_seconds": 39.703,
+        "metrics": {
+          "train": {
+            "mse": 0.011525437235832214,
+            "mae": 0.07355020940303802
+          },
+          "validation": {
+            "mse": 0.01228137593716383,
+            "mae": 0.07598000019788742
+          },
+          "test": {
+            "mse": 0.011514564044773579,
+            "mae": 0.07419517636299133
+          }
+        }
+      }
+    ],
+    "mse": {
+      "train": 0.011076705530285835,
+      "validation": 0.011724133044481277,
+      "test": 0.010927701368927956
+    },
+    "test_mse_mean_across_seeds": 0.011259724075595537,
+    "test_mse_std_across_seeds": 0.0003009482202970401
   }
 }

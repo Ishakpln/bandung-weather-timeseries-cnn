@@ -114,8 +114,8 @@ def run(raw=None):
         check("gate_changed_raw", rejected(lambda: common.require_previous(2, raw)), "Hash raw berubah ditolak")
     with patch.object(common, "source_signature", return_value={}):
         check("gate_changed_code", rejected(lambda: common.require_previous(2, raw)), "Kode prasyarat berubah ditolak")
-    result = {"status": "passed", "checks_count": len(checks), "checks": checks,
-              "raw_sha256": common.sha256(raw), "cnn_training_performed": False}
+    result = {"status": "passed", "scope": "stages_1_to_5_only", "checks_count": len(checks), "checks": checks,
+              "raw_sha256": common.sha256(raw), "cnn_evaluated_by_this_script": False}
     json_write(TABLES / "verification_results.json", result)
     print(f"VERIFIKASI LULUS: {len(checks)} pemeriksaan; raw tetap; tahap 1–5 lengkap.")
     return result

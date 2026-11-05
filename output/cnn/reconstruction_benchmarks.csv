@@ -1,0 +1,6 @@
+space,method,test_mse
+1D standardized weather,train_mean,0.9415030479
+1D standardized weather,train_hour_profile,0.672577893
+1D standardized weather,cnn1d,0.05780888349
+2D temperature similarity,train_mean_image,0.03042396531
+2D temperature similarity,cnn2d,0.01092770137

@@ -1,0 +1,13 @@
+# Preserve generated artifacts and raw CSV bytes used by provenance manifests.
+data/** -text whitespace=cr-at-eol
+output/** -text whitespace=cr-at-eol
+reports/** -text whitespace=cr-at-eol
+*.pdf binary
+*.png binary
+*.pt binary
+*.npy binary
+*.npz binary
+# Source hashes should not change with the checkout platform's line endings.
+src/*.py text eol=lf
+README.md text eol=lf
+requirements.txt text eol=lf

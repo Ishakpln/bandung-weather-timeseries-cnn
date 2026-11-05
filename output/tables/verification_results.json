@@ -1,5 +1,6 @@
 {
   "status": "passed",
+  "scope": "stages_1_to_5_only",
   "checks_count": 29,
   "checks": [
     {
@@ -149,5 +150,5 @@
     }
   ],
   "raw_sha256": "8e3b4eda200da0b49fb416ec5bd985e8ac2c413dd24ab59fe140c649046ee469",
-  "cnn_training_performed": false
+  "cnn_evaluated_by_this_script": false
 }

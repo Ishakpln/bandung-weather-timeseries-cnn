@@ -1,0 +1,4 @@
+split,rows,windows,used_hours,tail_hours_not_windowed
+train,17520,365,17520,0
+validation,8784,183,8784,0
+test,8760,182,8736,24

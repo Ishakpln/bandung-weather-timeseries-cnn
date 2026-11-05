@@ -1,0 +1,54 @@
+{
+  "cnn1d": {
+    "elapsed_seconds": 0.95,
+    "epochs": 3,
+    "samples": {
+      "train": 365,
+      "validation": 183,
+      "test": 182
+    },
+    "mse": {
+      "train": 0.9179233908653259,
+      "validation": 1.0841615200042725,
+      "test": 0.8923760056495667
+    }
+  },
+  "cnn2d": {
+    "elapsed_seconds": 0.56,
+    "epochs": 3,
+    "samples": {
+      "train": 365,
+      "validation": 183,
+      "test": 182
+    },
+    "mse": {
+      "train": 0.09177137166261673,
+      "validation": 0.09127634763717651,
+      "test": 0.0908084362745285
+    }
+  },
+  "configuration": {
+    "seed": 42,
+    "window_hours": 48,
+    "recurrence": "exp(-abs(normalized_temperature_difference)/0.25); 32x32",
+    "features": [
+      "temperature_2m",
+      "relative_humidity_2m",
+      "dew_point_2m",
+      "precipitation",
+      "pressure_msl",
+      "cloud_cover",
+      "wind_speed_10m"
+    ],
+    "chronological_split": {
+      "train": "2022-2023",
+      "validation": "2024",
+      "test": "2025"
+    },
+    "optimizer": "Adam",
+    "lr": 0.001,
+    "batch": 64,
+    "torch": "2.10.0+cpu",
+    "note": "1D and 2D reconstruction losses have different target spaces; do not rank models by raw MSE."
+  }
+}
