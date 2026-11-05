@@ -83,3 +83,27 @@ Rencana CNN memakai train 2022–2023, validation 2024, dan test 2025, tanpa fit
 Karena EDA sudah mencakup 2025, dokumentasi menjelaskan batas holdout yang sudah dilihat serta
 perlunya membekukan protokol sebelum modeling. Scaler, imputasi, atau threshold model berikutnya
 harus dipelajari dari train; seluruh hasil EDA bukan parameter preprocessing CNN.
+
+## CNN representation-learning experiment (new)
+
+Requires PyTorch and scikit-learn in addition to the existing `requirements.txt`:
+
+```bash
+python -m pip install torch scikit-learn
+python src/stage6_cnn_experiments.py --epochs 3
+```
+
+The script reads the existing cleaned CSV, preserves chronological splits (2022–23 / 2024 / 2025), fits scaling on train only, and trains separate 1D multivariate and 2D temperature recurrence-similarity convolutional autoencoders. Outputs: `output/cnn/` (models, figures, embeddings, scaler, metrics), and `reports/07_cnn_paper.md` (research draft). The default three-epoch CPU run is a **smoke-test baseline**, not a tuned or conclusive experiment. The 2D matrix is continuous recurrence similarity, **not a binary RP**. MSE between 1D and 2D target spaces must not be compared directly.
+
+
+## Fokus penelitian revisi: interpretasi visual, bukan penemuan pola baru
+
+Penelitian menelaah **apa yang dapat dilihat** dari visualisasi time-series asli, peta aktivasi CNN 1D, citra kemiripan rekuren, peta aktivasi CNN 2D, rekonstruksi, dan proyeksi embedding. Forecasting dan discovery meteorologi baru bukan tujuan. MSE masing-masing autoencoder merupakan diagnostik rekonstruksi, **bukan skor perbandingan langsung**.
+
+Setelah menjalankan eksperimen baseline (`python src/stage6_cnn_experiments.py --epochs 3`), buat enam grafik interpretasi tambahan dari checkpoint tersimpan dengan:
+
+```bash
+python src/stage7_visual_interpretation.py
+```
+
+Grafik tersimpan di `output/cnn/`; keterangan dan keterbatasannya berada di `visual_interpretation_manifest.json`. Paper revisi: `reports/07_cnn_paper.pdf` dan `.md`. Grafik interpretasi menggunakan contoh window test pertama, tidak merepresentasikan keseluruhan tahun.
